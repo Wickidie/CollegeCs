@@ -6,10 +6,10 @@ public class ManipulasiArray{
     Scanner in = new Scanner(System.in);
     
     ArrayData ad = new ArrayData();
-    ad.insertData(new Customer(1, 1000, "albert", "malang"));
-    ad.insertData(new Customer(2, 2000, "david", "surabaya"));
-    ad.insertData(new Customer(3, 3000, "handika", "batu"));
-    ad.insertData(new Customer(4, 4000, "bernadus", "malang"));
+    ad.insertData(new Customer(1, 7000, "albert", "malang"));
+    ad.insertData(new Customer(2, 6000, "david", "surabaya"));
+    ad.insertData(new Customer(3, 4000, "handika", "batu"));
+    ad.insertData(new Customer(4, 1000, "bernadus", "malang"));
     ad.insertData(new Customer(5, 5000, "cevin", "surabaya"));
 
     ad.printDataAll();

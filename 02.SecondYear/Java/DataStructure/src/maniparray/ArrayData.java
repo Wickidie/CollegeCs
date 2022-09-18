@@ -1,6 +1,6 @@
 package maniparray;
 public class ArrayData{
-  static final int MAXDATA = 4;
+  static final int MAXDATA = 5;
   static int custSum = 0;
 
   Customer arr[] = new Customer[5];
@@ -14,6 +14,7 @@ public class ArrayData{
       System.out.println(cust.getAll() + " Succes !");
     }
   }
+  
   public void deleteData(int id){
     boolean status = false;
     int pos = -1;
@@ -39,6 +40,7 @@ public class ArrayData{
       System.out.println(arr[i].getAll());
     }
   }
+
   public Customer printData(int index){
     return arr[index];
   }
@@ -49,27 +51,27 @@ public class ArrayData{
 
   public Customer topCustomerBal(){
     Customer most = arr[0];
-    for (int i = 0; i < arr.length-2; i++) {
-      if (arr[i].getBal() > arr[i+1].getBal()) {
+    for (int i = 1; i < arr.length; i++) {
+      // System.out.println(i);
+      // System.out.println(arr[i].getName());
+      if (most.getBal() < arr[i].getBal()) {
         most = arr[i];
-      }else{
-        most = arr[i+1];
       }
     }
     return most;
   }
+
   public Customer longestName() {
     Customer longest = arr[0];
-    for (int i = 0; i < arr.length-2; i++) {
-      if (arr[i].getName().length() > 
-          arr[i+1].getName().length()) {
+    for (int i = 1; i < arr.length; i++) {
+      if (longest.getName().length() < 
+          arr[i].getName().length()) {
         longest = arr[i];
-      }else{
-        longest = arr[i+1];
       }
     }
     return longest;
   }
+
   public Customer[] showCustomerAt(String address){
     int sameAdrs = 0;
     for (int i = 0; i < custSum; i++) {
