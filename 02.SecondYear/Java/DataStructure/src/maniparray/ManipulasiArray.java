@@ -17,13 +17,14 @@ public class ManipulasiArray{
     ad.topCustomerBal().getBal());
     System.out.println("LONGEST NAME = " +
     ad.longestName().getName());
-    // for (int i = 0; i < ad.showCustomerAt("malang").length; i++) {
-    //   System.out.println();
+
+    // Customer sameAdrs[] = ad.showCustomerAt("malang");
+    // for (int i = 0; i < sameAdrs.length; i++) {
+    //   System.out.println(sameAdrs[i].getAll());
     // }
-    Customer sameAdrs[] = ad.showCustomerAt("malang");
-    for (int i = 0; i < sameAdrs.length; i++) {
-      System.out.println(sameAdrs[i].getAll());
-    }
+
+    ad.deleteData("bernadus");
+    ad.printDataAll();
    
     in.close();
   }

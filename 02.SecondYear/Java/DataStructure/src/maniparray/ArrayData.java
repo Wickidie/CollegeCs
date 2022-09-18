@@ -15,24 +15,26 @@ public class ArrayData{
     }
   }
   
-  public void deleteData(int id){
-    boolean status = false;
+  public boolean deleteData(String custName){
     int pos = -1;
     for (int i = 0; i < custSum; i++) {
-      if (arr[i].getIDCust() == id) {
-        status = true;
+      if (custName.compareToIgnoreCase(arr[i].getName()) == 0) {
+        pos = i;
         break;
       }
     }
-    if (status) {
-      if (id == custSum) {
-        custSum--;
-      }else{
-        for (int i = 0; i < custSum-1; i++) {
-          
-        }
-      }
+    if(pos == -1){
+      return false;
     }
+    if (pos == (custSum - 1)) {
+      custSum--;
+    }else{
+      for (int i = pos; i < custSum-1; i++) {
+        arr[i] = arr[i+1];
+      }
+      custSum--;
+    }
+    return true;
   }
 
   public void printDataAll() {
