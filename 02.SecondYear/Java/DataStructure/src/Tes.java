@@ -9,11 +9,12 @@ class Tes{
     int a;
     int asd;
     
-    System.out.println("ajudhjsaddhdvxh");
+    System.out.println("ajudhjsdsdadaddhdvxh");
     a = in.nextInt();
     System.out.println(a);
     
     System.out.println();
+    //asd
     
     in.close();
   } 
