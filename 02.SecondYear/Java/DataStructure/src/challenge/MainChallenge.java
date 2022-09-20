@@ -1,6 +1,6 @@
 package challenge;
 
-public class main {
+public class MainChallenge {
     public static void main(String[] args) {
         arraydata ad = new arraydata();
 
