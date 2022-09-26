@@ -9,29 +9,12 @@ class Tes{
   public static void main (String[] args) {
     Scanner in = new Scanner(System.in);
 
+    String arr[] = {"asdasd", "ASDAS"};
     ArrayList<String> al = new ArrayList<>();
+    // int[] numbers = { 1, 2, 3, 4, 5 };
 
-    int cnt = 0;
-
-    al.add("asd");
-    al.add("asd");
-    al.add("asd");
-
-    // System.out.println(al.remove("asd"));
-    // System.out.println(al.remove("asd"));
-    // System.out.println(al.remove("asd"));
-    // System.out.println(al.remove("asd"));
-
-    while (al.remove("asd") == true) {
-      cnt++;
-      System.out.println(cnt);
-      System.out.println(al.isEmpty());
-      al.remove("asd");
-    }
-    System.out.println();
-    System.out.println(al.isEmpty());
     
-    
+
     
     in.close();
   } 
