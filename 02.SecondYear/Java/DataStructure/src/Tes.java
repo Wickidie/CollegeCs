@@ -1,7 +1,4 @@
 import java.util.Scanner;
-
-import maniparray.Customer;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -13,7 +10,7 @@ class Tes{
     ArrayList<String> al = new ArrayList<>();
     // int[] numbers = { 1, 2, 3, 4, 5 };
 
-    
+    System.out.println("DS" == "DS");
 
     
     in.close();
