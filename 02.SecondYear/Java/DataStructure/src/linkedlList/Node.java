@@ -2,7 +2,7 @@ package linkedlList;
 
 public class Node {
     private int num;
-    private Node ptrNextNode;
+    Node ptrNextNode;
 
     Node(int num){
         this.num = num;
@@ -11,14 +11,6 @@ public class Node {
 
     public int getNum() {
         return num;
-    }
-
-    public void setNextNode(Node node) {
-        ptrNextNode = node;
-    }
-
-    public Node getNextNode() {
-        return ptrNextNode;
     }
 
 }
