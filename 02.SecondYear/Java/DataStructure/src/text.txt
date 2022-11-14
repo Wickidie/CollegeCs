@@ -1,0 +1,251 @@
+pre:
+-3E
+-+A2E
+-+A/1DE
+-+A/*BCDE
+
+1. pre: *BC ifx: B*C pos: BC*
+2. pre: /1D ifx: 1/D pos: 1D/
+3. pre: +A2 ifx: A+2 pos: A2+
+4. pre: -3E ifx: 3-E pos: 3E-
+
+ifx:
+A+2-E
+A+1/D-E
+A+B*C/D-E
+
+pos:
+3E-
+A2+E-
+A1D/+E-
+ABC*D/+E-
+
+//
+
+ABC*D/+E-
+A1D/+E-
+A2+E-
+3E-
+
+1. pre: *BC ifx: (B*C) pos: BC*
+2. pre: /1D ifx: (1/D) pos: 1D/
+3. pre: +A2 ifx: (A+2) pos: A2+
+4. pre: -3E ifx: (3-E) pos: 3E-
+
+(3-E)
+((A+2)-E)
+((A+(1/D))-E)
+(((A+(B*C))/D)-E)
+((A+(B*C))/D)-E
+
+-+A/*BCDE
+-+A/1DE
+-+A2E
+-3E
+
+//
+
+5*2+4^3/*-7
+
+stack:
+1. 5
+result: 
+2. 5*
+result: 5
+3. *2
+result: 52
+3. *+
+result: 52*
+3. +
+result: 52*
+3. +4
+result: 52*
+3. +4^
+result: 52*+
+3. 4^
+
+//
+// Baru lebih besar -> disimpen
+// Baru lebih kecil && sama dengan -> dibuang sebelumnya
+2+4*8^7-3^9/(-1)
+
+()
+variable
+signed
+^
+*/%
++-
+
+stack:
+2 result: 
+2+ result: 2 
++4 result: 2 
++* result: 24 
++*8 result: 24 
++*^ result: 248 
++*^7 result: 248 
++*^- result: 2487 
++*- result: 2487^
++- result: 2487^*
+- result: 2487^*+
+-3 result: 2487^*+
+-3^ result: 2487^*+
+-^ result: 2487^*+3
+-^9 result: 2487^*+3
+-^9/ result: 2487^*+3
+-^/ result: 2487^*+39
+-/ result: 2487^*+39^
+-/(-1) result: 2487^*+39^
+-/(-1) result: 2487^*+39^-1
+-/ result: 2487^*+39^-1
+- result: 2487^*+39^-1/
+ result: 2487^*+39^-1/-
+
+//
+
+1/2^Y%7+B^(-4)*3-524
+
+()
+variable
+signed
+^
+*/%
++-
+
+stack:
+1 result: 
+
+1/ result: 
+/ result: 1
+
+/2 result: 1
+
+/2^ result: 1
+/^ result: 12
+
+/^Y result: 12
+
+/^Y% result: 12
+/^% result: 12Y
+/% result: 12Y^
+% result: 12Y^/
+
+%7 result: 12Y^/
+
+%7+ result: 12Y^/
+%+ result: 12Y^/7
++ result: 12Y^/7%
+
++B result: 12Y^/7%
+
++B^ result: 12Y^/7%
++^ result: 12Y^/7%B
+
++^(-4) result: 12Y^7%/B
+
++^(-4)* result: 12Y^/7%B
++^* result: 12Y^/7%B -4
++* result: 12Y^/7%B -4 ^
+
++*3 result: 12Y^/7%B -4 ^
+
++*3- result: 12Y^/7%B -4 ^
++*- result: 12Y^/7%B -4 ^3
++- result: 12Y^/7%B -4 ^3*
+- result: 12Y^/7%B -4 ^3*+
+
+-524 result: 12Y^/7%B -4 ^3*+
+- result: 12Y^/7%B -4 ^3*+524
+result: 12Y^/7%B -4 ^3*+524-
+
+//
+// Baru lebih besar -> disimpen
+// Baru lebih kecil && sama dengan -> dibuang sebelumnya
+// (A+B-C) -> C-B+A
+
+((5*((2+4)^3))/(8-7))
+
+stack:
+( result:
+
+result: 524+3^*87-/
+
+//
+// Baru lebih besar -> disimpen
+// Baru lebih kecil && sama dengan -> dibuang sebelumnya
+// (A+B-C) -> C-B+A
+
+5*(10^(7*20))/1^(128-(4%7))+Y
+
+stack:
+5 result: 
+
+5* result: 
+* result: 5
+
+*( result: 5
+
+*(10 result: 5
+
+*(10^ result: 5
+*(^ result: 510
+
+*(^( result: 510
+
+*(^(7 result: 510
+
+*(^(7* result: 510
+*(^(* result: 5107
+
+*(^(*20 result: 5107
+
+*(^(*20) result: 5107
+*(^ result: 510720*
+
+*(^) result: 510720*
+* result: 510720*^
+
+*/ result: 510720*^
+/ result: 510720*^*
+
+/1 result: 510720*^*
+
+/1^ result: 510720*^*
+/^ result: 510720*^*1
+
+/^( result: 510720*^*1
+
+/^(128 result: 510720*^*1
+
+/^(128- result: 510720*^*1
+/^(- result: 510720*^*1128
+
+/^(-( result: 510720*^*1128
+
+/^(-(4 result: 510720*^*1128
+
+/^(-(4% result: 510720*^*1128
+/^(-(% result: 510720*^*11284
+
+/^(-(%F result: 510720*^*11284
+
+/^(-(%F) result: 510720*^*11284
+/^(- result: 510720*^*11284F%
+
+/^(-) result: 510720*^*11284F%
+/^ result: 510720*^*11284F%-
+
+/^+ result: 510720*^*11284F%-
+/+ result: 510720*^*11284F%-^
++ result: 510720*^*11284F%-^/
+
++Y result: 510720*^*11284F%-^/
++ result: 510720*^*11284F%-^/Y
+ result: 510720*^*11284F%-^/Y+
+
+
+
+
+
+
+
