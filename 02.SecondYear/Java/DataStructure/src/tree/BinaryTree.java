@@ -114,6 +114,23 @@ public class BinaryTree {
         return pivot;
     }
 
+    public Node findNodeParent(Node pivot, int num){
+        if (pivot.left.num != num && pivot.right.num != num) {
+            if (pivot.left.num == num || pivot.right.num == num) {
+                return pivot;
+            }else if(num < pivot.num){
+                try {
+                    return findNodeParent(pivot.left, num);
+                } catch (NullPointerException e) {}
+            }else{
+                try {
+                    return findNodeParent(pivot.right, num);
+                } catch (NullPointerException e) {}
+            }
+        }
+        return pivot;
+    }
+
     public String getDescendant(Node pivot, int num) {
         String res = "";
         if (pivot != null) {
@@ -127,68 +144,113 @@ public class BinaryTree {
         return res; 
     }
 
-    public String getLeave(Node pivot, int num) {
-        String res = "";
-        if (pivot != null) {
-            if (pivot.left != null) {
-                res += preOrder(pivot.left);
-            }
-            if (pivot.right != null) {
-                res += preOrder(pivot.right);
-            }
+    public int getLeafCount(Node pivot) {
+        try {
+            if (pivot.left != null && pivot.right != null) {}
+        } catch (Exception e) {}
+        if (pivot.left != null && pivot.right != null) {
+            return getLeafCount(pivot.left) + getLeafCount(pivot.right);
+        }else{
+            return 1; 
         }
-        return res; 
     }
-
-    public String getAncestor(Node pivot, int num) {
-        String res = "";
-        if (pivot != null) {
-            if (pivot.left != null) {
-                res += preOrder(pivot.left);
+    
+    public String getLeafNode(Node pivot) {
+        try {
+            if (pivot.left != null || pivot.right != null) {
+                return getLeafNode(pivot.left) + getLeafNode(pivot.right);
+            }else{
+                return String.valueOf(pivot.num) + " "; 
             }
-            if (pivot.right != null) {
-                res += preOrder(pivot.right);
-            }
-        }
-        return res; 
-    }
+        } catch (Exception e) {}
+        return "";
+        
+    } 
 
     // Other Property
+    public String parentOf(int num) {
+        Node temp_node = findNodeParent(root, num);
+        if (temp_node.left.num == num 
+        || temp_node.right.num == num) {
+            return  "ParentOF " + num + " = " + temp_node.num;
+        }
+        return "NDAK ADA T_T";
+    }
+
     public String childOf(int num) {
         String res = "";
-        
         try {
             res += findNode(root, num).left.num + " ";
         } catch (NullPointerException e) {}
         try {
             res += findNode(root, num).right.num + " ";
         } catch (NullPointerException e) {}
-
         return "ChildOf " + num + " = " + res;
     }
 
     public String descendantOf(int num) {
         String res = "";
-        
         try {
             res += getDescendant(findNode(root, num), num);
         } catch (NullPointerException e) {}
-
         return "DescendantOf " + num + " = " + res;
     }
 
-    public String leaveOf(int num) {
-        String res = "";
-        
-        try {
-            res += getDescendant(findNode(root, num), num);
-        } catch (NullPointerException e) {
-            res += "null";
-        }
-
-        return "LeaveOf " + num + " = " + res;
+    public String leafCountOf() {
+        return "Leaf Count From " + root.num + " = " + getLeafCount(root);
     }
 
-    
+    public String leafNodeOf() {
+        return "Leaf Node From " + root.num + " = " + getLeafNode(root);
+    }
+
+    public static Node findMaximumKey(Node pivot){
+        while (pivot.right != null) {
+            pivot = pivot.right;
+        }
+        return pivot;
+    }
+
+    public Node deleteNode(Node pivot, int num) {
+        if (root == null) {
+            return null;
+        }
+        if (num < pivot.num) {
+            pivot.left = deleteNode(pivot.left, num);
+        }
+        else if (num > pivot.num) {
+            pivot.right = deleteNode(pivot.right, num);
+        // If found
+        }else{
+            // Case 1: node to be deleted has no children (it is a leaf node)
+            if (pivot.left == null && pivot.right == null){
+                return null;
+            }
+            // Case 2: node to be deleted has two children
+            else if (pivot.left != null && pivot.right != null){
+                // find its inorder predecessor node
+                Node predecessor = findMaximumKey(pivot.left);
+ 
+                // copy value of the predecessor to the current node
+                pivot.num = predecessor.num;
+ 
+                // recursively delete the predecessor. Note that the
+                // predecessor will have at most one child (left child)
+                pivot.left = deleteNode(pivot.left, predecessor.num);
+            }
+            // Case 3: node to be deleted has only one child
+            else {
+                Node child;
+                if (pivot.left != null) {
+                    child = pivot.left;
+                }else{
+                    child = pivot.right;
+                }
+                pivot = child;
+            }
+        }
+ 
+        return pivot;
+    }
 
 }

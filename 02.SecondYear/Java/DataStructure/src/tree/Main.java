@@ -14,13 +14,23 @@ public class Main {
         BT.insert(BT.root, 25);
 
         System.out.println(BT.inOrder());        
-        System.out.println(BT.preOrder());        
-        System.out.println(BT.postOrder()); 
-        System.out.println();       
-
+        System.out.println(BT.preOrder());   
+        System.out.println(BT.postOrder());
+        System.out.println();
         System.out.println(BT.childOf(5));
         System.out.println(BT.descendantOf(5));
-        System.out.println(BT.leaveOf(5));
+        System.out.println(BT.leafNodeOf());
+        System.out.println(BT.parentOf(1));
+        
+        BT.deleteNode(BT.root, 5);
+        System.out.println(BT.inOrder());        
+        System.out.println(BT.preOrder());   
+        System.out.println(BT.postOrder());
+        System.out.println(BT.childOf(10));
+        System.out.println(BT.descendantOf(4));
+        System.out.println(BT.leafNodeOf());
+        System.out.println(BT.parentOf(1));
+        
 
 
       }
