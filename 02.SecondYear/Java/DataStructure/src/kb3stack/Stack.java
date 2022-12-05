@@ -12,7 +12,7 @@ public class Stack {
         head = null;
     }
 
-    public void  reverse(String str) {
+    public void reverse(String str) {
         int temp = 0;
         for (int i = 0; i < str.length(); i++) {
             push(str.charAt(i));
@@ -23,7 +23,7 @@ public class Stack {
             pop();
         }
     }
-    public void  reverseOnSteroid(String str) {
+    public void reverseOnSteroid(String str) {
         int temp = 0;
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == 32) {
@@ -129,6 +129,4 @@ public class Stack {
             System.out.println("HAH??? \" KOSONG?? ASTAPIRULAH ALLASIM");
         }
     }
-    
-
 }
