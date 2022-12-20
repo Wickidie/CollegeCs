@@ -20,13 +20,20 @@ public class mainGraph {
    graph.addEdge(3, 4, 4);
    graph.addEdge(4, 4, 0);
    
+   
+   graph.printEdge();
    graph.calculateGraph();
+   graph.printGraph();
    
    graph.printGraph();
    
+   // graph.removeEdge(2, 3);
+
+   // graph.checkWeight(2, 3);
+
    graph.route(0, 4);
-   System.out.println();
-   graph.printGraph();
+
+   // graph.printGraph();
 
     try {
       
