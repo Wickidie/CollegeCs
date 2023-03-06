@@ -53,11 +53,11 @@ public class BinaryTree {
         String res = "";
         if (pivot != null) {
             if (pivot.left != null) {
-                res += inOrder(pivot.left);
+                res += inOrder(pivot.left).toString();
             }
             res += pivot.num + " ";
             if (pivot.right != null) {
-                res += inOrder(pivot.right);
+                res += inOrder(pivot.right).toString();
             }
         }
         return res;
