@@ -7,32 +7,35 @@
         <title>My test page</title>
         <link href="Web/TestWeb/styles/test.css" rel="stylesheet" />
     </head>
+
+    <style>
+        html{
+            background-image: url("Web/TestWeb/images/icon_change.png");
+        }
+    </style>
     
     <body>
         <!-- 4 heading levels: -->
-        <img src="Web/TestWeb/images/icon.png" alt="My test image" />
+        <img src="Web/TestWeb/images/icon.png" 
+            alt="My test image" 
+            title="Handsome Guy"
+            />
         <h1>Wickidie Test Web</h1>
         <p>This is a single paragraph</p>
         <p>At Mozilla, we're a global community of</p>
-        <ol>
             <ol>technologists</ol>
             <ol>thinkers</ol>
             <ol>builders</ol>
-        </ol>
         <p>working together…</p>
         
+        <div class="rounded">
         <h2>My top level heading</h2>
-        <a>Mozilla Manifesto</a>
-        <a href="">Mozilla Manifesto</a>
-        <a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manifesto</a>
         
-        <h3>My subheading</h3>
-        
-        <h4>My sub-subheading</h4>
-
-        <button>Change user</button>
+        <div class="rounded">
+        <p class="center-link">
+            <a href="https://developer.mozilla.org/en-US/docs/Learn">Learning Resource</a>
+        </p>
         <script src="Web/TestWeb/scripts/test.js"></script>
-        
     </body>
     
     </html>

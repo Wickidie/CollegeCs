@@ -10,7 +10,7 @@ li {
   letter-spacing: 1px;
 }
 html {
-  background-color: #af9a9a;
+  background-color: #380202;
 }
 body {
   width: 600px;
@@ -31,5 +31,12 @@ img {
   padding: 20px 0px 0px 0px;
 }
 
-
-
+.rounded{
+  border-top: 20px solid #e00e0e;
+  border-radius: 1px;
+  align-items: center;
+  
+}
+.center-link{
+  text-align: center;
+}
