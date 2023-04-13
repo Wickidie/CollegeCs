@@ -1,0 +1,35 @@
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+p,
+li {
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+html {
+  background-color: #af9a9a;
+}
+body {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #ff9500;
+  padding: 0px 20px 20px 20px;
+  border: 15px solid black;
+}
+h1 {
+  margin: 0 auto;
+  padding: 20px 0px;
+  color: #00539f;
+  text-shadow: 3px -1px 2px black;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 0px 0px 0px;
+}
+
+
+
