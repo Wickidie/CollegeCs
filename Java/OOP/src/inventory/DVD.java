@@ -5,9 +5,9 @@ public class DVD extends Product {
     private int age_rating;
     private String film_studio;
 
-    public DVD(int number, String name, int qty, int price,
+    public DVD(int number, String name, int qty, double tempPrice,
             int length, int age_rating, String film_studio) {
-        super(number, name, qty, price);
+        super(number, name, qty, tempPrice);
         this.length = length;
         this.age_rating = age_rating;
         this.film_studio = film_studio;
@@ -44,19 +44,19 @@ public class DVD extends Product {
 
     @Override
     public String toString() {
-        String s = "Item Number" + getNumber()
-                + "Name : " + getName()
-                + "Movie lenght : " + getLength()
-                + "Age rating : " + getAge_rating()
-                + "Film Studio : " + getFilm_studio()
-                + "Quantity in stock : " + getQty()
-                + "Price : " + getPrice()
-                + "Stock Value : " + getInventoryValue()
-                + "Product Status : ";
+        String s = "\nItem Number : " + getNumber()
+                + "\nName : " + getName()
+                + "\nMovie lenght : " + getLength()
+                + "\nAge rating : " + getAge_rating()
+                + "\nFilm Studio : " + getFilm_studio()
+                + "\nQuantity in stock : " + getQty()
+                + "\nPrice : " + getPrice()
+                + "\nStock Value : " + getInventoryValue()
+                + "\nProduct Status : ";
         if (isStatus()) {
-            System.out.print("Active\n");
+            s += "Active\n";
         } else {
-            System.out.print("Discontinued\n");
+            s += "Discontinued\n";
         }
 
         return s + getClass().getName() + "@" + Integer.toHexString(hashCode()) + "\n";

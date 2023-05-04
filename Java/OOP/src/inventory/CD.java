@@ -5,9 +5,9 @@ public class CD extends Product {
     private int number_of_song;
     private String label;
 
-    public CD(int number, String name, int qty, int price,
+    public CD(int number, String name, int qty, double tempPrice,
             String artist, int num_of_song, String label) {
-        super(number, name, qty, price);
+        super(number, name, qty, tempPrice);
         this.artist = artist;
         this.number_of_song = num_of_song;
         this.label = label;
@@ -39,19 +39,19 @@ public class CD extends Product {
 
     @Override
     public String toString() {
-        String s = "Item Number" + getNumber()
-                + "Name : " + getName()
-                + "Artist : " + getArtist()
-                + "Song on Album : " + getNumber_of_song()
-                + "Record Label : " + getLabel()
-                + "Quantity in stock : " + getQty()
-                + "Price : " + getPrice()
-                + "Stock Value : " + getInventoryValue()
-                + "Product Status : ";
+        String s = "\nItem Number : " + getNumber()
+                + "\nName : " + getName()
+                + "\nArtist : " + getArtist()
+                + "\nSong on Album : " + getNumber_of_song()
+                + "\nRecord Label : " + getLabel()
+                + "\nQuantity in stock : " + getQty()
+                + "\nPrice : " + getPrice()
+                + "\nStock Value : " + getInventoryValue()
+                + "\nProduct Status : ";
         if (isStatus()) {
-            System.out.print("Active\n");
+            s += "Active\n";
         } else {
-            System.out.print("Discontinued\n");
+            s += "Discontinued\n";
         }
 
         return s + getClass().getName() + "@" + Integer.toHexString(hashCode()) + "\n";
