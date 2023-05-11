@@ -4,7 +4,7 @@ public class Lecturer {
     private static int current_lecturer = 0;
     private int id = 0;
     private String name;
-    private Course teach[] = new Course[5];
+    private Course teach[] = new Course[10];
     private int current_teach = 0;
 
     Lecturer(String name) {

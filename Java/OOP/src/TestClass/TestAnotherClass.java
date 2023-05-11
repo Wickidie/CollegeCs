@@ -4,7 +4,7 @@ public class TestAnotherClass {
     int a;
     int b;
 
-    static{
+    static {
         System.out.println("OKOKOKO");
     }
 

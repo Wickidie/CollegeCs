@@ -5,7 +5,7 @@ public class TestClass {
     int x;
     int y;
 
-    TestClass(int x, int y){
+    TestClass(int x, int y) {
         System.out.println(this);
         count++;
     }
@@ -13,8 +13,17 @@ public class TestClass {
     public TestClass printTC(TestClass TC) {
         return staticPrintTC(TC);
     }
-    
+
     public static TestClass staticPrintTC(TestClass TC) {
         return TC;
     }
+
+    public void name() {
+
+    }
+
+    public class InnerTestClass {
+
+    }
+
 }

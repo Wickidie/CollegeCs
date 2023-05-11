@@ -2,7 +2,7 @@ package KB2_OOP;
 
 import java.util.Scanner;
 
-public class main {
+public class MainKB2 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
@@ -13,6 +13,7 @@ public class main {
         Lecturer arr_lecture[] = new Lecturer[max_lecture];
         Student arr_student[] = new Student[max_student];
         Course arr_course[] = new Course[max_course];
+
         in.nextLine();
 
         int num = 0;
@@ -62,8 +63,8 @@ public class main {
         student.setLearn(course);
     }
 
-    public static void removeCourse(Student student, int i) {
-        student.removeLearn(i);
+    public static void removeCourse(Student student, int course_id) {
+        student.removeLearn(course_id);
         ;
     }
 
