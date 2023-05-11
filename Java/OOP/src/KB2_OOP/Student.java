@@ -1,12 +1,10 @@
 package KB2_OOP;
 
-import java.util.Currency;
-
 public class Student {
     private static int current_student = 0;
     private int id = 0;
     private String name;
-    private Course learn[] = new Course[5];;
+    private Course learn[] = new Course[10];
     private boolean status;
     private int current_course = 0;
 
@@ -38,8 +36,17 @@ public class Student {
     }
 
     public void setLearn(Course learn) {
-        this.learn[current_course] = learn;
-        current_course++;
+        for (int i = 0; i < Course.getCurrentCourse(); i++) {
+            if (this.learn[i] == null) {
+                this.learn[i] = learn;
+                current_course++;
+                break;
+            }
+            if (i == Course.getCurrentCourse() - 1) {
+                System.out.println("Cant take anymore Course");
+                break;
+            }
+        }
     }
 
     public boolean isStatus() {
@@ -62,8 +69,20 @@ public class Student {
         this.id = id;
     }
 
-    public void removeLearn(int i) {
-        learn[i] = null;
+    public void removeLearn(int course_id) {
+        for (int i = 0; i < learn.length; i++) {
+            try {
+                if (learn[i].getId() == course_id) {
+                    learn[i] = null;
+                    current_course--;
+                    break;
+                } else {
+                    System.out.println("Course id " + course_id + " Cant be found");
+                }
+            } catch (Exception e) {
+            }
+
+        }
     }
 
 }

@@ -5,7 +5,7 @@ public class Course {
     private int id = 0;
     private String name;
     private String schedule;
-    private Lecturer lecturer[] = new Lecturer[5];
+    private Lecturer lecturer[] = new Lecturer[10];
     private int current_lecturer;
 
     Course(String name, String schedule) {
