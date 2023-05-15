@@ -50,6 +50,7 @@ public class Student {
     }
 
     public boolean isStatus() {
+
         return status;
     }
 
