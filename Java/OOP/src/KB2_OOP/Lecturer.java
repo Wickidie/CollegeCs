@@ -33,11 +33,6 @@ public class Lecturer {
         return teach;
     }
 
-    public void setTeach(Course course) {
-        this.teach[current_teach] = course;
-        current_teach++;
-    }
-
     public int getCurrentTeach() {
         return current_teach;
     }
@@ -48,6 +43,11 @@ public class Lecturer {
 
     public static int getCurrentLecturer() {
         return current_lecturer;
+    }
+
+    public void setTeach(Course course) {
+        this.teach[current_teach] = course;
+        current_teach++;
     }
 
     public static void setCurrentLecturer(int current_lecturer) {

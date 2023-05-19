@@ -35,20 +35,6 @@ public class Student {
         return learn[i];
     }
 
-    public void setLearn(Course learn) {
-        for (int i = 0; i < Course.getCurrentCourse(); i++) {
-            if (this.learn[i] == null) {
-                this.learn[i] = learn;
-                current_course++;
-                break;
-            }
-            if (i == Course.getCurrentCourse() - 1) {
-                System.out.println("Cant take anymore Course");
-                break;
-            }
-        }
-    }
-
     public boolean isStatus() {
 
         return status;
@@ -68,6 +54,20 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setLearn(Course learn) {
+        for (int i = 0; i < Course.getCurrentCourse(); i++) {
+            if (this.learn[i] == null) {
+                this.learn[i] = learn;
+                current_course++;
+                break;
+            }
+            if (i == Course.getCurrentCourse() - 1) {
+                System.out.println("Cant take anymore Course");
+                break;
+            }
+        }
     }
 
     public void removeLearn(int course_id) {

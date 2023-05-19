@@ -13,7 +13,6 @@ public class MainKB2 {
         Lecturer arr_lecture[] = new Lecturer[max_lecture];
         Student arr_student[] = new Student[max_student];
         Course arr_course[] = new Course[max_course];
-
         in.nextLine();
 
         int num = 0;
@@ -65,7 +64,6 @@ public class MainKB2 {
 
     public static void removeCourse(Student student, int course_id) {
         student.removeLearn(course_id);
-        ;
     }
 
     public static void setStudentState(Student student, boolean status) {
@@ -74,15 +72,15 @@ public class MainKB2 {
 
     public static void detailLecturers(Lecturer[] arr_lecturer) {
         try {
-            System.out.println("\nShow All Lecturer");
+            System.out.println("\n=== Show All Lecturer ===");
             for (int i = 0; i < arr_lecturer.length; i++) {
                 System.out.println("Lecturer ID = " + arr_lecturer[i].getId());
                 System.out.println("Lecturer Name = " + arr_lecturer[i].getName());
                 System.out.println("This lecturer teach :");
                 for (int j = 0; j < Course.getCurrentCourse(); j++) {
                     try {
-                        System.out.println("+ Course = " + arr_lecturer[i].getTeachAt(j).getName());
-                        System.out.println("Schedule = " + arr_lecturer[i].getTeachAt(j).getSchedule());
+                        System.out.println(" + Course = " + arr_lecturer[i].getTeachAt(j).getName());
+                        System.out.println(" + Schedule = " + arr_lecturer[i].getTeachAt(j).getSchedule());
                     } catch (Exception e) {
                         System.out.println(" - Available Course Slot");
                     }
@@ -90,13 +88,13 @@ public class MainKB2 {
                 System.out.println("");
             }
         } catch (Exception e) {
-            System.out.println("Null at DL");
+            System.out.println("Null at DL (mayb empty)");
         }
     }
 
     public static void detailStudents(Student[] arr_student) {
         try {
-            System.out.println("\nShow All Student");
+            System.out.println("\n==== Show All Student ===");
             for (int i = 0; i < arr_student.length; i++) {
                 System.out.println("Student ID = " + arr_student[i].getId());
                 System.out.println("Student Name = " + arr_student[i].getName());
@@ -104,8 +102,8 @@ public class MainKB2 {
                 System.out.println("This student is currently studying :");
                 for (int j = 0; j < Course.getCurrentCourse(); j++) {
                     try {
-                        System.out.println("+ Course ID = " + arr_student[i].getLearnAt(j).getId());
-                        System.out.println("Course Name = " + arr_student[i].getLearnAt(j).getName());
+                        System.out.println(" + Course ID = " + arr_student[i].getLearnAt(j).getId());
+                        System.out.println(" + Course Name = " + arr_student[i].getLearnAt(j).getName());
                     } catch (Exception e) {
                         System.out.println(" - Available Course Slot");
                     }
@@ -113,13 +111,13 @@ public class MainKB2 {
                 System.out.println("");
             }
         } catch (Exception e) {
-            System.out.println("Null at DS");
+            System.out.println("Null at DS (mayb empty)");
         }
     }
 
     public static void detailCourses(Course[] arr_course) {
         try {
-            System.out.println("\nShow All Course");
+            System.out.println("\n=== Show All Course ===");
             for (int i = 0; i < arr_course.length; i++) {
                 System.out.println("Course ID = " + arr_course[i].getId());
                 System.out.println("Course Name = " + arr_course[i].getName());
@@ -127,7 +125,7 @@ public class MainKB2 {
                 System.out.println("This Course is currently being teached by : ");
                 for (int j = 0; j < Lecturer.getCurrentLecturer(); j++) {
                     try {
-                        System.out.println("+ Lecturer Name = " + arr_course[i].getLecturerAt(j).getName());
+                        System.out.println(" + Lecturer Name = " + arr_course[i].getLecturerAt(j).getName());
                     } catch (Exception e) {
                         System.out.println(" - Available Lecturer Slot");
                     }
@@ -135,7 +133,7 @@ public class MainKB2 {
                 System.out.println("");
             }
         } catch (Exception e) {
-            System.out.println("Null at DC");
+            System.out.println("Null at DC (mayb empty)");
         }
     }
 
@@ -191,7 +189,6 @@ public class MainKB2 {
                     System.out.println("(type true or false, not 0 or 1)");
                 }
                 setStudentState(arr_student[student_id], status);
-                detailStudents(arr_student);
                 break;
             case 7:
                 detailLecturers(arr_lecturer);
@@ -227,8 +224,31 @@ public class MainKB2 {
                 + "8. Detail Student\n"
                 + "9. Detail Course\n"
                 + "10. Take Course | Show All Student | Show All Course\n"
-                + "0. Exit\n";
+                + "0. Exit\n"
+                + "You choice is :";
         return s;
     }
 
 }
+
+// # Auto Input populating the Test Case #
+// 2
+// 2
+// 3
+// 1
+// Paulus Lucky
+// 1
+// Oesman Hendra Kelana
+// 2
+// Vassilissa
+// 2
+// Steven
+// 3
+// Automata
+// Monday, 08.00 - 09.30
+// 3
+// Object Oriented Programming
+// Thursday, 08.00 - 12.00
+// 3
+// Programming
+// Tuesday, 13.00 - 17.00
