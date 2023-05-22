@@ -1,7 +1,6 @@
 
-public class AES {
+public class TestRun {
     public static void main(String[] args) {
-        
         int[][] sBox = {
             {0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5, 0x30, 0x01, 0x67, 0x2B, 0xFE, 0xD7, 0xAB, 0x76},
             {0xCA, 0x82, 0xC9, 0x7D, 0xFA, 0x59, 0x47, 0xF0, 0xAD, 0xD4, 0xA2, 0xAF, 0x9C, 0xA4, 0x72, 0xC0},
@@ -20,19 +19,43 @@ public class AES {
             {0xE1, 0xF8, 0x98, 0x11, 0x69, 0xD9, 0x8E, 0x94, 0x9B, 0x1E, 0x87, 0xE9, 0xCE, 0x55, 0x28, 0xDF}, 
             {0x8C, 0xA1, 0x89, 0x0D, 0xBF, 0xE6, 0x42, 0x68, 0x41, 0x99, 0x2D, 0x0F, 0xB0, 0x54, 0xBB, 0x16}
             };
-
-        String[][] state = { { "32", "88", "31", "e0" },
+        String[][] state = {
+                { "32", "88", "31", "e0" },
                 { "43", "5a", "31", "37" },
                 { "f6", "30", "98", "07" },
                 { "a8", "8d", "a2", "34" } };
-        String[][] key = { { "2b", "28", "ab", "09" },
+        String[][] key = {
+                { "2b", "28", "ab", "09" },
                 { "7e", "ae", "f7", "ef" },
                 { "15", "d2", "15", "4f" },
                 { "16", "a6", "88", "3e" } };
 
-        String[][] after_round_key = addRoundKey(state, key);
-        System.out.println("\n");
-        String[][] after_shift_row = shiftRows(after_round_key);
+        for (int i = 0; i < state.length; i++) {
+            System.out.println("State");
+            for (int j = 0; j < key.length; j++) {
+                System.out.print(hexToBinary(state[i][j].charAt(0)) + " " + hexToBinary(state[i][j].charAt(1)) + " | ");
+            }
+        }
+        System.out.println();
+        for (int i = 0; i < state.length; i++) {
+            System.out.println("Key");
+            for (int j = 0; j < key.length; j++) {
+                System.out.print(hexToBinary(key[i][j].charAt(0)) + " " + hexToBinary(key[i][j].charAt(1)) + " | ");
+            }
+        }
+        System.out.println();
+        for (int i = 0; i < key.length; i++) {
+            System.out.println("XOR");
+            for (int j = 0; j < key.length; j++) {
+                System.out.print(hexToBinary(state[i][j].charAt(0)) ^ hexToBinary(key[i][j].charAt(0)));
+                System.out.print(" ");
+                System.out.print(hexToBinary(state[i][j].charAt(1)) ^ hexToBinary(key[i][j].charAt(1)));
+                System.out.print(" | ");
+            }
+        }
+
+        String[][] rounded_key = addRoundKey(state, key);
+        String[][] sboxed = subBytes(rounded_key, sbox);
 
     }
 
@@ -40,6 +63,7 @@ public class AES {
         return Character.digit(c, 16);
     }
 
+    // tolong di test berhasil gk
     public static String[][] addRoundKey(String[][] state, String[][] key) {
         String[][] res = { { "", "", "", "" },
                 { "", "", "", "" },
@@ -56,7 +80,7 @@ public class AES {
                 res[i][j] += "" + Integer.toHexString(a ^ b);
             }
         }
-        System.out.print("Hasil add round key : ");
+        System.out.println("Hasil add round key : ");
         for (int i = 0; i < res.length; i++) {
             System.out.println();
             for (int j = 0; j < res.length; j++) {
@@ -66,61 +90,31 @@ public class AES {
         return res;
     }
 
-    public static String[][] subBytes(String[][] arr, String[][] sbox) {
-        String[][] res = { { "", "", "", "" },
+    public static String[][] subBytes(String[][] arr, int sbox) {
+        String[][] res = { 
+                { "", "", "", "" },
                 { "", "", "", "" },
                 { "", "", "", "" },
                 { "", "", "", "" } };
 
         for (int i = 0; i < res.length; i++) {
             for (int j = 0; j < res.length; j++) {
-                res[i][j] = sbox[hexToBinary(arr[i][j].charAt(0))][hexToBinary(arr[i][j].charAt(1))];
+                res[i][j] = String.valueOf(sbox[hexToBinary(arr[i][j].charAt(0))][hexToBinary(arr[i][j].charAt(1))]);
             }
         }
-
-        return res;
-    }
-
-    public static String[][] shiftRows(String[][] state) {
-        String[][] res = { { "", "", "", "" },
-            { "", "", "", "" },
-            { "", "", "", "" },
-            { "", "", "", "" } };
-        for (int i = 0; i < state.length; i++) {
-            switch(i){
-                case 0 :
-                    for (int j = 0; j < state.length; j++) {
-                        res[i][j] = state[i][j];
-                    }break;
-                case 1 :
-                    res[i][0] = state[i][1];
-                    res[i][1] = state[i][2];
-                    res[i][2] = state[i][3];
-                    res[i][3] = state[i][0];
-                    break;
-                case 2 :
-                    res[i][0] = state[i][2];
-                    res[i][1] = state[i][3];
-                    res[i][2] = state[i][0];
-                    res[i][3] = state[i][1];
-                    break;
-                case 3 :
-                    res[i][0] = state[i][3];
-                    res[i][1] = state[i][0];
-                    res[i][2] = state[i][1];
-                    res[i][3] = state[i][2];
-                    break;
-            };
-
-        }
-        System.out.print("Hasil Shift Rows : ");
+        System.out.println("Hasil subbytes (sboxed) : ");
         for (int i = 0; i < res.length; i++) {
             System.out.println();
             for (int j = 0; j < res.length; j++) {
                 System.out.print(res[i][j] + " ");
             }
         }
+
         return res;
+    }
+
+    public static void shiftRows() {
+
     }
 
     public static void mixColumns() {
