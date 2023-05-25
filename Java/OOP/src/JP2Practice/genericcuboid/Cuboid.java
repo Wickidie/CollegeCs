@@ -1,40 +1,23 @@
-package JP2Practice.genericcuboid;
-import java.util.Collections;
-
+// package JP2Practice.genericcuboid;
+import java.util.ArrayList;
 
 public class Cuboid<T>{
-    private int MAX_SIZE = 10;
-    private Object arr[];
-
-    Cuboid(int n){
-        arr = new Object[n];
-    }
+    private ArrayList<T> arr = new ArrayList<T>();
 
     public void sort() {
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - i - 1; j++) {
-                if (arr[j].compareTo(arr[j + 1]) > 0) {
-                    // Swap strings[j] and strings[j + 1]
-                    Object temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
-        }
+        arr.sort(null);
     }
 
     public void add(T obj) {
-        if (arr.length <= MAX_SIZE) {
-            arr[arr.length] = obj;
+    arr.add(obj);
+    }
+
+    @Override
+    public String toString() {
+        String s = "";
+        for (int i = 0; i < arr.size(); i++) {
+            s += arr.get(i) + " ";
         }
+        return s;
     }
-
-    public Object[] getArr() {
-        return arr;
-    }
-
-    public void setL(T arr[]) {
-        this.arr = arr;
-    }
-
 }
