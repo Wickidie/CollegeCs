@@ -28,54 +28,18 @@ public class AES {
                 { "7e", "ae", "f7", "cf" },
                 { "15", "d2", "15", "4f" },
                 { "16", "a6", "88", "3c" } };
-                
+        
         int round_count = 2;
-        if (round_count <= 1) {
-            System.out.println("Round ke-0");
-            state = addRoundKey(state, key);
+        state = addRoundKey(state, key);
+        for (int i = 0; i < round_count; i++) {
+            System.out.println("Round ke-" + i);
             state = subBytes(state, sBox);
             state = shiftRows(state);
             state = mixColumns(state);
-            key = generateRoundKey(key, 0, sBox);
+            key = generateRoundKey(key, i, sBox);
             state = addRoundKey(state, key);
-        }else if(round_count == 2){
-            System.out.println("Round ke-0");
-            state = addRoundKey(state, key);
-            state = subBytes(state, sBox);
-            state = shiftRows(state);
-            state = mixColumns(state);
-            key = generateRoundKey(key, 0, sBox);
-            System.out.println("End ke-0");
-            
-            System.out.println("Round ke-1");
-            state = addRoundKey(state, key);
-            state = subBytes(state, sBox);
-            state = shiftRows(state);
-            state = mixColumns(state);
-            key = generateRoundKey(key, 1, sBox);
-            System.out.println("End ke-1");
-
-            state = addRoundKey(state, key);
-        }else{
-            System.out.println("TO BE CONTINUED");
-            // for (int i = 0; i < round_count; i++) {
-            //     System.out.println("Round ke-" + i);
-            //     state = addRoundKey(state, key);
-            //     state = subBytes(state, sBox);
-            //     state = shiftRows(state);
-            //     state = mixColumns(state);
-            //     key = generateRoundKey(key, i, sBox);
-            //     // state = addRoundKey(state, key);
-            //     System.out.println("End ke-" + i);
-            // }
-            // // state = subBytes(state, sBox);
-            // // state = shiftRows(state);
-            // // key = generateRoundKey(key, round_count-1, sBox);
-            // state = addRoundKey(state, key);
+            System.out.println("End ke-" + i);
         }
-        // System.out.print("Hasil " + round_count + "x muter : ");
-        // printArr(state);
-
     }
     
     public static String[][] addRoundKey(String[][] state, String[][] key) {
@@ -122,121 +86,108 @@ public class AES {
             { "", "", "", "" },
             { "", "", "", "" },
             { "", "", "", "" } };
-            for (int i = 0; i < state.length; i++) {
-                switch (i) {
-                    case 0:
-                        for (int j = 0; j < state.length; j++) {
-                            res[i][j] = state[i][j];
-                        }
+        for (int i = 0; i < state.length; i++) {
+            switch (i) {
+                case 0:
+                    for (int j = 0; j < state.length; j++) {
+                        res[i][j] = state[i][j];
+                    }
+                break;
+                case 1:
+                    res[i][0] = state[i][1];
+                    res[i][1] = state[i][2];
+                    res[i][2] = state[i][3];
+                    res[i][3] = state[i][0];
+                break;
+                case 2:
+                    res[i][0] = state[i][2];
+                    res[i][1] = state[i][3];
+                    res[i][2] = state[i][0];
+                    res[i][3] = state[i][1];
+                break;
+                case 3:
+                    res[i][0] = state[i][3];
+                    res[i][1] = state[i][0];
+                    res[i][2] = state[i][1];
+                    res[i][3] = state[i][2];
                     break;
-                    case 1:
-                        res[i][0] = state[i][1];
-                        res[i][1] = state[i][2];
-                        res[i][2] = state[i][3];
-                        res[i][3] = state[i][0];
-                    break;
-                    case 2:
-                        res[i][0] = state[i][2];
-                        res[i][1] = state[i][3];
-                        res[i][2] = state[i][0];
-                        res[i][3] = state[i][1];
-                    break;
-                    case 3:
-                        res[i][0] = state[i][3];
-                        res[i][1] = state[i][0];
-                        res[i][2] = state[i][1];
-                        res[i][3] = state[i][2];
-                        break;
-                };
-            }
-            System.out.print("Hasil Shift Rows : ");
-            printArr(res);
-            return res;
+            };
         }
+        System.out.print("Hasil Shift Rows : ");
+        printArr(res);
+        return res;
+    }
         
-        public static String[][] mixColumns(String[][] arr) {
-            String[][] res = { 
+    public static String[][] mixColumns(String[][] arr) {
+        String[][] res = { 
+            { "", "", "", "" },
+            { "", "", "", "" },
+            { "", "", "", "" },
+            { "", "", "", "" } };
+        String[][] polinom = { 
+            { "02", "03", "01", "01" },
+            { "01", "02", "03", "01" },
+            { "01", "01", "02", "03" },
+            { "03", "01", "01", "02" } };
+        for (int i = 0; i < arr.length; i++) {
+            String[][] mx = { 
                 { "", "", "", "" },
                 { "", "", "", "" },
                 { "", "", "", "" },
                 { "", "", "", "" } };
-            String[][] polinom = { 
-                { "02", "03", "01", "01" },
-                { "01", "02", "03", "01" },
-                { "01", "01", "02", "03" },
-                { "03", "01", "01", "02" } };
-            for (int i = 0; i < arr.length; i++) {
-                String[][] mx = { 
-                    { "", "", "", "" },
-                    { "", "", "", "" },
-                    { "", "", "", "" },
-                    { "", "", "", "" } };
-                for (int j = 0; j < arr.length; j++) {
-                    for (int k = 0; k < arr.length; k++) {
-                        switch (polinom[j][k]) {
-                            case "01":
-                                mx[k][j] = arr[k][i];
-                            break;
-                            case "02":
-                                mx[k][j] = rules02(arr[k][i]);
-                            break;
-                            case "03":
-                                String temp = rules02(arr[k][i]);
-                                mx[k][j] += Integer.toHexString(hexToBinary(arr[k][i].charAt(0)) ^ 
-                                hexToBinary(temp.charAt(0)));
-                                mx[k][j] += Integer.toHexString(hexToBinary(arr[k][i].charAt(1)) ^ 
-                                hexToBinary(temp.charAt(1)));
-                            break;
-                            default:
-                            break;
-                        }
+            for (int j = 0; j < arr.length; j++) {
+                for (int k = 0; k < arr.length; k++) {
+                    switch (polinom[j][k]) {
+                        case "01":
+                            mx[k][j] = arr[k][i];
+                        break;
+                        case "02":
+                            mx[k][j] = rules02(arr[k][i]);
+                        break;
+                        case "03":
+                            String temp = rules02(arr[k][i]);
+                            mx[k][j] += Integer.toHexString(hexToBinary(arr[k][i].charAt(0)) ^ 
+                            hexToBinary(temp.charAt(0)));
+                            mx[k][j] += Integer.toHexString(hexToBinary(arr[k][i].charAt(1)) ^ 
+                            hexToBinary(temp.charAt(1)));
+                        break;
+                        default:
+                        break;
                     }
                 }
-                    // System.out.print("Mx for coloumns " + i + " :");
-                    // printArr(mx);
-                    
-                for (int j = 0; j < arr.length; j++) {
-                    res[j][i] += Integer.toHexString(
-                        hexToBinary(mx[0][j].charAt(0)) ^
-                        hexToBinary(mx[1][j].charAt(0)) ^
-                        hexToBinary(mx[2][j].charAt(0)) ^
-                        hexToBinary(mx[3][j].charAt(0)));
-                    res[j][i] += Integer.toHexString(
-                        hexToBinary(mx[0][j].charAt(1)) ^
-                        hexToBinary(mx[1][j].charAt(1)) ^
-                        hexToBinary(mx[2][j].charAt(1)) ^
-                        hexToBinary(mx[3][j].charAt(1)));
-                }
             }
-            
-            System.out.print("Hasil Mix Columns : ");
-            printArr(res);
-            return res; 
+            for (int j = 0; j < arr.length; j++) {
+                res[j][i] += Integer.toHexString(
+                    hexToBinary(mx[0][j].charAt(0)) ^
+                    hexToBinary(mx[1][j].charAt(0)) ^
+                    hexToBinary(mx[2][j].charAt(0)) ^
+                    hexToBinary(mx[3][j].charAt(0)));
+                res[j][i] += Integer.toHexString(
+                    hexToBinary(mx[0][j].charAt(1)) ^
+                    hexToBinary(mx[1][j].charAt(1)) ^
+                    hexToBinary(mx[2][j].charAt(1)) ^
+                    hexToBinary(mx[3][j].charAt(1)));
+            }
         }
+        System.out.print("Hasil Mix Columns : ");
+        printArr(res);
+        return res; 
+    }
                 
-                public static String rules02(String s) {
-                    String a = "1B";
-                    String res = "";
-                    if (hexToBinary(s.charAt(0)) >= 8) {
-                        if (((Integer.parseInt(s, 16) << 1) - 256) < 16) {
-                            res += "0";                
-                            res += Integer.toHexString((Integer.parseInt(s, 16) << 1));
-                        }else{
-                            res = Integer.toHexString(((Integer.parseInt(s, 16) << 1) - 256));
-                        }
-                        // System.out.println("result rule02 " + s + " = " + res);
-                        // res = Integer.toHexString(((Integer.parseInt(s, 16) << 1) - 256));
-                        return Integer.toHexString(hexToBinary(a.charAt(0)) ^ hexToBinary(res.charAt(0))) 
-                        + Integer.toHexString(hexToBinary(a.charAt(1)) ^ hexToBinary(res.charAt(1)));
-                    }else{
-                        if (hexToBinary(s.charAt(0)) >= 8) {
-                            // if (((Integer.parseInt(s, 16) << 1) - 256) < 16) {       
-                                //     res += "0";                
-                                //     res += Integer.toHexString(((Integer.parseInt(s, 16) << 1) - 256));
-                // }else{
-                    //     res = Integer.toHexString(((Integer.parseInt(s, 16) << 1) - 256));
-                // }
-                // System.out.println("if");
+    public static String rules02(String s) {
+        String a = "1B";
+        String res = "";
+        if (hexToBinary(s.charAt(0)) >= 8) {
+            if (((Integer.parseInt(s, 16) << 1) - 256) < 16) {
+                res += "0";                
+                res += Integer.toHexString((Integer.parseInt(s, 16) << 1));
+            }else{
+                res = Integer.toHexString(((Integer.parseInt(s, 16) << 1) - 256));
+            }
+            return Integer.toHexString(hexToBinary(a.charAt(0)) ^ hexToBinary(res.charAt(0))) 
+            + Integer.toHexString(hexToBinary(a.charAt(1)) ^ hexToBinary(res.charAt(1)));
+        }else{
+            if (hexToBinary(s.charAt(0)) >= 8) {
                 res = Integer.toHexString(((Integer.parseInt(s, 16) << 1) - 256));
             }else{
                 if (((Integer.parseInt(s, 16) << 1)) < 16) {
@@ -245,96 +196,87 @@ public class AES {
                 }else{
                     res = Integer.toHexString((Integer.parseInt(s, 16) << 1));
                 }
-                // System.out.println("else");
-                // res = Integer.toHexString((Integer.parseInt(s, 16) << 1));
             }
-            // System.out.println();
-            // System.out.println(s);
-            // System.out.println((Integer.parseInt(s, 16) << 1) < 16);
-            // System.out.println( (Integer.parseInt(s, 16) << 1));
-            // System.out.println("0" + Integer.toHexString((Integer.parseInt(s, 16) << 1)));
-            // System.out.println("result rule02 " + s + " = " + res);
             return res;
         }
     }
+
     public static String[][] generateRoundKey(String[][] key, int itr, String[][] sBox){
         String[][] res = { 
             { "", "", "", "" },
             { "", "", "", "" },
             { "", "", "", "" },
             { "", "", "", "" } };
-            String[][] firstColumn = {{""},{""},{""},{""}};
-            String[][] keySchedule = {{""},{"00"},{"00"},{"00"}};
-            switch(itr){
-                case 0 : keySchedule[0][0] = "01"; break;
-                case 1 : keySchedule[0][0] = "02"; break;
-                case 2 : keySchedule[0][0] = "04"; break;
-                case 3 : keySchedule[0][0] = "08"; break;
-                case 4 : keySchedule[0][0] = "10"; break;
-                case 5 : keySchedule[0][0] = "20"; break;
-                case 6 : keySchedule[0][0] = "40"; break;
-                case 7 : keySchedule[0][0] = "80"; break;
-                case 8 : keySchedule[0][0] = "1B"; break;
-                case 9 : keySchedule[0][0] = "36"; break;
-                }   
-                for (int i = 0; i < 3; i++) {
-                    firstColumn[i][0] = key[i+1][3];
-                }
-                firstColumn[3][0] = key[0][3];
-                firstColumn = subBytes1Col(firstColumn, sBox);
-                //untuk kolom 1
-                for (int i = 0; i < key.length; i++) {
-                    res[i][0] += Integer.toHexString(hexToBinary(firstColumn[i][0].charAt(0)) 
-                    ^ hexToBinary(keySchedule[i][0].charAt(0)) 
-                    ^ hexToBinary(key[i][0].charAt(0)));
-                    res[i][0] += Integer.toHexString(hexToBinary(firstColumn[i][0].charAt(1)) 
-                    ^ hexToBinary(keySchedule[i][0].charAt(1)) 
-                    ^ hexToBinary(key[i][0].charAt(1)));
-                }
-                // untuk kolom 2-4
-                for (int i = 1; i < key.length; i++){
-                    for(int j = 0; j < key.length; j++){
-                        res[j][i] += Integer.toHexString(hexToBinary(res[j][i-1].charAt(0)) 
-                        ^ hexToBinary(key[j][i].charAt(0)));
-                        res[j][i] += Integer.toHexString(hexToBinary(res[j][i-1].charAt(1)) 
-                        ^ hexToBinary(key[j][i].charAt(1)));
-                    }
-                } 
-                System.out.print("Hasil Generate Round Key : ");
-                printArr(res);
-                return res;
+        String[][] firstColumn = {{""},{""},{""},{""}};
+        String[][] keySchedule = {{""},{"00"},{"00"},{"00"}};
+        switch(itr){
+            case 0 : keySchedule[0][0] = "01"; break;
+            case 1 : keySchedule[0][0] = "02"; break;
+            case 2 : keySchedule[0][0] = "04"; break;
+            case 3 : keySchedule[0][0] = "08"; break;
+            case 4 : keySchedule[0][0] = "10"; break;
+            case 5 : keySchedule[0][0] = "20"; break;
+            case 6 : keySchedule[0][0] = "40"; break;
+            case 7 : keySchedule[0][0] = "80"; break;
+            case 8 : keySchedule[0][0] = "1B"; break;
+            case 9 : keySchedule[0][0] = "36"; break;
+        }   
+        for (int i = 0; i < 3; i++) {
+            firstColumn[i][0] = key[i+1][3];
+        }
+        firstColumn[3][0] = key[0][3];
+        firstColumn = subBytes1Col(firstColumn, sBox);
+        //untuk kolom 1
+        for (int i = 0; i < key.length; i++) {
+            res[i][0] += Integer.toHexString(hexToBinary(firstColumn[i][0].charAt(0)) 
+            ^ hexToBinary(keySchedule[i][0].charAt(0)) 
+            ^ hexToBinary(key[i][0].charAt(0)));
+            res[i][0] += Integer.toHexString(hexToBinary(firstColumn[i][0].charAt(1)) 
+            ^ hexToBinary(keySchedule[i][0].charAt(1)) 
+            ^ hexToBinary(key[i][0].charAt(1)));
+        }
+        // untuk kolom 2-4
+        for (int i = 1; i < key.length; i++){
+            for(int j = 0; j < key.length; j++){
+                res[j][i] += Integer.toHexString(hexToBinary(res[j][i-1].charAt(0)) 
+                ^ hexToBinary(key[j][i].charAt(0)));
+                res[j][i] += Integer.toHexString(hexToBinary(res[j][i-1].charAt(1)) 
+                ^ hexToBinary(key[j][i].charAt(1)));
             }
+        } 
+        System.out.print("Hasil Generate Round Key : ");
+        printArr(res);
+        return res;
+    }
 
-            public static int hexToBinary(char c) {
-                return Character.digit(c, 16);
+    public static int hexToBinary(char c) {
+        return Character.digit(c, 16);
+    }
+    
+    public static void printArr(String[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println();
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j] + " ");
             }
-            
-            public static void printArr(String[][] arr) {
-                for (int i = 0; i < arr.length; i++) {
-                    System.out.println();
-                    for (int j = 0; j < arr[i].length; j++) {
-                        System.out.print(arr[i][j] + " ");
-                    }
-                }
-                System.out.println("\n");
-            }
-            
-            public static String[][] subBytes1Col(String[][] arr, String[][] sbox) {
-                String[][] res = { 
-                    { "" },
-                    { "" },
-                    { "" },
-                    { "" } };
-                    for (int i = 0; i < res.length; i++) {
-                        res[i][0] = sbox[hexToBinary(arr[i][0].charAt(0))][hexToBinary(arr[i][0].charAt(1))];
-                    }
-                    // System.out.print("Hasil SubBytes1Col (sbox1Col) : ");
-                    // printArr(arr);
-                    return res;
-                }
-            }
-            
-            // Aldi
-            // Cevin
-            // Marvin
+        }
+        System.out.println("\n");
+    }
+    
+    public static String[][] subBytes1Col(String[][] arr, String[][] sbox) {
+        String[][] res = { 
+            { "" },
+            { "" },
+            { "" },
+            { "" } };
+        for (int i = 0; i < res.length; i++) {
+            res[i][0] = sbox[hexToBinary(arr[i][0].charAt(0))][hexToBinary(arr[i][0].charAt(1))];
+        }
+        return res;
+    }
+}
+    
+// Aldi
+// Cevin
+// Marvin
             
