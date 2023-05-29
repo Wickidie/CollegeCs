@@ -1,0 +1,316 @@
+#1 /////
+
+select 
+ e.EMPLOYEE_ID,
+ e.FIRST_NAME,
+ e.LAST_NAME,
+ e.JOB_ID,
+ j.JOB_TITLE
+from EMPLOYEES e
+
+JOIN JOBS j
+ON e.JOB_ID = j.JOB_ID;
+
+//////
+
+CREATE OR REPLACE PROCEDURE get_all_employee
+IS
+
+CURSOR res IS
+SELECT
+ e.EMPLOYEE_ID,
+ e.FIRST_NAME,
+ e.LAST_NAME,
+ e.JOB_ID,
+ j.JOB_TITLE
+FROM EMPLOYEES e
+JOIN JOBS j
+ON e.JOB_ID = j.JOB_ID;
+ 
+employee_id EMPLOYEES.EMPLOYEE_ID%TYPE;
+employee_first_name EMPLOYEES.FIRST_NAME%TYPE;
+employee_last_name EMPLOYEES.LAST_NAME%TYPE;
+job_id EMPLOYEES.JOB_ID%TYPE;
+job_title JOBS.JOB_TITLE%TYPE;
+  
+BEGIN
+
+  OPEN res;
+
+  LOOP
+    FETCH res INTO employee_id, employee_first_name, employee_last_name, job_id, job_title;
+    EXIT WHEN res%NOTFOUND;
+
+    DBMS_OUTPUT.PUT_LINE('EMPLOYEE_ID: ' || employee_id);
+    DBMS_OUTPUT.PUT_LINE('FULL_NAME: ' || employee_first_name || ' ' || employee_last_name);
+    DBMS_OUTPUT.PUT_LINE('JOB: ' || job_id || ' ' || job_title);
+    DBMS_OUTPUT.PUT_LINE('');
+  END LOOP;
+
+  CLOSE res;
+  
+END;
+/
+
+/////
+
+BEGIN
+  get_all_employee();
+END;
+/
+
+#2 //////
+
+select 
+ e.EMPLOYEE_ID,
+ e.FIRST_NAME,
+ e.LAST_NAME,
+ e.JOB_ID,
+ j.JOB_TITLE
+from EMPLOYEES e
+
+JOIN JOBS j
+ON e.JOB_ID = j.JOB_ID
+WHERE e.JOB_ID = 'IT_PROG';
+
+//////
+
+CREATE OR REPLACE PROCEDURE get_all_programmers
+IS
+
+CURSOR res IS
+SELECT
+ e.EMPLOYEE_ID,
+ e.FIRST_NAME,
+ e.LAST_NAME,
+ e.JOB_ID,
+ j.JOB_TITLE
+FROM EMPLOYEES e
+JOIN JOBS j
+ON e.JOB_ID = j.JOB_ID
+WHERE e.JOB_ID = 'IT_PROG';
+ 
+employee_id EMPLOYEES.EMPLOYEE_ID%TYPE;
+employee_first_name EMPLOYEES.FIRST_NAME%TYPE;
+employee_last_name EMPLOYEES.LAST_NAME%TYPE;
+job_id EMPLOYEES.JOB_ID%TYPE;
+job_title JOBS.JOB_TITLE%TYPE;
+  
+BEGIN
+
+  OPEN res;
+
+  LOOP
+    FETCH res INTO employee_id, employee_first_name, employee_last_name, job_id, job_title;
+    EXIT WHEN res%NOTFOUND;
+
+    DBMS_OUTPUT.PUT_LINE('EMPLOYEE_ID: ' || employee_id);
+    DBMS_OUTPUT.PUT_LINE('FULL_NAME: ' || employee_first_name || ' ' || employee_last_name);
+    DBMS_OUTPUT.PUT_LINE('JOB: ' || job_id || ' ' || job_title);
+    DBMS_OUTPUT.PUT_LINE('');
+  END LOOP;
+
+  CLOSE res;
+  
+END;
+/
+
+#3 /////
+
+SELECT job_id, COUNT(*) AS employee_count, MIN(salary) AS minimun_salary, MAX(salary) AS maximum_salary
+FROM employees
+GROUP BY job_id;
+
+/////
+
+CREATE OR REPLACE PROCEDURE cluster_employee
+IS
+
+CURSOR res IS
+SELECT job_id, 
+COUNT(*) AS employee_count,
+MIN(salary) AS minimun_salary, 
+MAX(salary) AS maximum_salary
+FROM employees
+GROUP BY job_id;
+ 
+job_id EMPLOYEES.JOB_ID%TYPE;
+employee_count NUMBER;
+minimun_salary NUMBER;
+maximum_salary NUMBER;
+  
+BEGIN
+
+  OPEN res;
+
+  LOOP
+    FETCH res INTO job_id, employee_count, minimun_salary, maximum_salary;
+    EXIT WHEN res%NOTFOUND;
+
+    DBMS_OUTPUT.PUT_LINE('JOB ID : ' || job_id);
+    DBMS_OUTPUT.PUT_LINE('JOB COUNT: ' || employee_count);
+    DBMS_OUTPUT.PUT_LINE('SALARY RANGE:' || minimun_salary || '-' || maximum_salary);
+    DBMS_OUTPUT.PUT_LINE('');
+  END LOOP;
+
+  CLOSE res;
+  
+END;
+/
+
+/////
+
+BEGIN
+  cluster_employee();
+END;
+/
+
+#4 /////
+
+SELECT manager_id, COUNT(*) AS employee_count
+FROM employees 
+GROUP BY manager_id;
+
+/////
+
+CREATE OR REPLACE PROCEDURE get_all_manager
+IS
+
+CURSOR res IS
+SELECT 
+manager_id, 
+COUNT(*) AS employee_count
+FROM employees 
+GROUP BY manager_id;
+ 
+manager_id EMPLOYEES.MANAGER_ID%TYPE;
+employee_count NUMBER;
+  
+BEGIN
+
+  OPEN res;
+
+  LOOP
+    FETCH res INTO manager_id, employee_count;
+    EXIT WHEN res%NOTFOUND;
+
+    DBMS_OUTPUT.PUT_LINE('MANAGER ID : ' || manager_id);
+    DBMS_OUTPUT.PUT_LINE('EMPLOYEE COUNT: ' || employee_count);
+    DBMS_OUTPUT.PUT_LINE('');
+  END LOOP;
+
+  CLOSE res;
+  
+END;
+/
+
+/////
+
+BEGIN
+  get_all_manager();
+END;
+/
+
+#5a /////
+
+SELECT employee_id, first_name, last_name, manager_id
+FROM employees 
+WHERE manager_id = '100'
+;
+
+/////
+
+CREATE OR REPLACE PROCEDURE get_manager(id IN NUMBER)
+IS
+
+CURSOR res IS
+SELECT 
+    employee_id, 
+    first_name, 
+    last_name, 
+    manager_id
+FROM employees 
+WHERE manager_id = id
+;
+ 
+employee_id EMPLOYEES.employee_id%TYPE;
+first_name EMPLOYEES.first_name%TYPE;
+last_name EMPLOYEES.last_name%TYPE;
+manager_id EMPLOYEES.MANAGER_ID%TYPE;
+  
+BEGIN
+
+  OPEN res;
+
+  LOOP
+    FETCH res INTO employee_id, first_name, last_name, manager_id;
+    EXIT WHEN res%NOTFOUND;
+
+    DBMS_OUTPUT.PUT_LINE('EMPLOYEE : ' || employee_id || ' ' || first_name || ' ' || last_name);
+    DBMS_OUTPUT.PUT_LINE('MANAGER ID : ' || manager_id);
+    DBMS_OUTPUT.PUT_LINE('');
+  END LOOP;
+
+  CLOSE res;
+  
+END;
+/
+
+/////
+
+BEGIN
+  get_manager(100);
+END;
+/
+
+#5b //////
+
+SELECT employee_id, first_name, last_name, manager_id
+FROM employees 
+WHERE employee_id = '100'
+;
+
+/////
+
+CREATE OR REPLACE PROCEDURE get_specific_employee(id IN NUMBER)
+IS
+
+CURSOR res IS
+SELECT 
+    employee_id, 
+    first_name, 
+    last_name, 
+    manager_id
+FROM employees 
+WHERE emlpoyee_id = id
+;
+ 
+employee_id EMPLOYEES.employee_id%TYPE;
+first_name EMPLOYEES.first_name%TYPE;
+last_name EMPLOYEES.last_name%TYPE;
+manager_id EMPLOYEES.MANAGER_ID%TYPE;
+  
+BEGIN
+
+  OPEN res;
+
+  LOOP
+    FETCH res INTO employee_id, first_name, last_name, manager_id;
+    EXIT WHEN res%NOTFOUND;
+
+    DBMS_OUTPUT.PUT_LINE('EMPLOYEE : ' || employee_id || ' ' || first_name || ' ' || last_name);
+    DBMS_OUTPUT.PUT_LINE('MANAGER ID : ' || manager_id);
+    DBMS_OUTPUT.PUT_LINE('');
+  END LOOP;
+
+  CLOSE res;
+  
+END;
+/
+
+/////
+
+BEGIN
+  get_specific_employee();
+END;
+/
