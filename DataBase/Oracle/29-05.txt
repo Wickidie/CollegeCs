@@ -1,4 +1,4 @@
-#1 /////
+ #1 /////
 
 select 
  e.EMPLOYEE_ID,
@@ -165,7 +165,45 @@ BEGIN
 END;
 /
 
-#4 /////
+#4 FUNC /////
+
+CREATE OR REPLACE FUNCTION get_all_manager
+RETURN SYS_REFCURSOR
+IS
+  v_cursor SYS_REFCURSOR;
+BEGIN
+  OPEN v_cursor FOR
+  SELECT manager_id,
+  COUNT(*) AS employee_count
+  FROM employees
+  GROUP BY manager_id
+;
+  
+  RETURN v_cursor ;
+END;
+/
+
+/////
+
+DECLARE
+v_cursor SYS_REFCURSOR;
+v_manager_id employees.manager_id%TYPE;
+employee_count NUMBER;
+BEGIN
+  v_cursor := get_all_manager();
+  
+LOOP
+  FETCH v_cursor INTO v_manager_id, employee_count ;
+  EXIT WHEN v_cursor %NOTFOUND;
+
+  DBMS_OUTPUT.PUT_LINE('MANAGER ID: ' || v_manager_id);
+END LOOP;
+  
+CLOSE v_cursor;
+END;
+/
+
+#4 PRO /////
 
 SELECT manager_id, COUNT(*) AS employee_count
 FROM employees 
@@ -211,7 +249,80 @@ BEGIN
 END;
 /
 
-#5a /////
+#5a FUNC /////
+
+CREATE OR REPLACE FUNCTION get_all_manager
+RETURN SYS_REFCURSOR
+IS
+  v_cursor SYS_REFCURSOR;
+BEGIN
+  OPEN v_cursor FOR
+  SELECT DISTINCT manager_id
+  FROM employees;
+  
+  RETURN v_cursor ;
+END;
+/
+
+/////
+
+DECLARE
+v_cursor SYS_REFCURSOR;
+v_manager_id employees.manager_id%TYPE;
+BEGIN
+  v_cursor := get_all_manager();
+  
+LOOP
+  FETCH v_cursor INTO v_manager_id;
+  EXIT WHEN v_cursor %NOTFOUND;
+
+  DBMS_OUTPUT.PUT_LINE('MANAGER ID: ' || v_manager_id);
+END LOOP;
+  
+CLOSE v_cursor;
+END;
+/
+
+#5b FUNC /////
+
+CREATE OR REPLACE FUNCTION get_specific_employee(id IN NUMBER)
+RETURN SYS_REFCURSOR
+IS
+  v_cursor SYS_REFCURSOR;
+BEGIN
+  OPEN v_cursor FOR
+  SELECT employee_id, manager_id
+  FROM employees
+  WHERE employee_id = id
+;
+  
+  RETURN v_cursor ;
+END;
+/
+
+/////
+
+DECLARE
+v_cursor SYS_REFCURSOR;
+v_employee_id employees.employee_id%TYPE;
+v_manager_id employees.manager_id%TYPE;
+BEGIN
+  v_cursor := get_specific_employee(101);
+  
+LOOP
+  FETCH v_cursor INTO v_employee_id, v_manager_id;
+  EXIT WHEN v_cursor %NOTFOUND;
+
+  DBMS_OUTPUT.PUT_LINE('EMPLOYEE ID: ' || v_employee_id );
+  DBMS_OUTPUT.PUT_LINE('MANAGED BY: ' || v_manager_id);
+  DBMS_OUTPUT.PUT_LINE('');
+END LOOP;
+  
+CLOSE v_cursor;
+END;
+/
+
+#5a PRO /////
 
 SELECT employee_id, first_name, last_name, manager_id
 FROM employees 
@@ -263,7 +374,7 @@ BEGIN
 END;
 /
 
-#5b //////
+#5b PRO //////
 
 SELECT employee_id, first_name, last_name, manager_id
 FROM employees 
