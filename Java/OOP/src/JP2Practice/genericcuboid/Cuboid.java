@@ -1,4 +1,4 @@
-// package JP2Practice.genericcuboid;
+package JP2Practice.genericcuboid;
 import java.util.ArrayList;
 
 public class Cuboid<T>{
