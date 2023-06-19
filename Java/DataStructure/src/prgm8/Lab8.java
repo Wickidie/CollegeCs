@@ -1,6 +1,4 @@
 package prgm8;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
 public class Lab8 {
     public static void task1() {
