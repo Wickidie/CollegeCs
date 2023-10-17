@@ -21,4 +21,5 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 
 # collegecs
 [../Web/partyinyourarea/index.html](/Web/partyinyourarea/index.html)
+[../Web/paintingofjoy/product/index.html](Web/paintingofjoy/product)
 
