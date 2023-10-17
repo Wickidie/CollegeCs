@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>Library</title>
+    <title>Museum</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/product/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -96,8 +96,14 @@
         max-width: 100%;
         height: auto;
         display: block;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 10px;
+        border-color: grey;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
       }
 
       .img-product{
@@ -105,7 +111,6 @@
         border-radius: 10px;
         border-width: 30px;
         border-color: rgb(173, 114, 36);
-        margin-bottom: 50px;
       }
     </style>
     
@@ -128,9 +133,45 @@
         <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
       </symbol>
     </svg>
+    
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="border-radius: 8px;aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+  </symbol>
+  <symbol id="cart" viewBox="0 0 16 16">
+    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+  <symbol id="chevron-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+  </symbol>
+</svg>
 
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand d-md-none" href="#">
+      <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
+      Aperture
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="#offcanvasLabel">Aperture</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav flex-grow-1 justify-content-between">
+          <li class="nav-item">
+          <li class="nav-item"><a class="nav-link" href="../product/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../product/store.html">Store</a></li>
+          <li class="nav-item"><a class="nav-link" href="../product/error.html">Auction</a></li>
+          <li class="nav-item">
+        </ul>
+      </div>
+    </div>
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
               id="bd-theme"
               type="button"
               aria-expanded="false"
@@ -162,46 +203,6 @@
           </button>
         </li>
       </ul>
-    </div>
-
-    
-<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-  <symbol id="border-radius: 8px;aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="10"/>
-    <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
-  </symbol>
-  <symbol id="cart" viewBox="0 0 16 16">
-    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-  </symbol>
-  <symbol id="chevron-right" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-  </symbol>
-</svg>
-
-<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
-  <div class="container">
-    <a class="navbar-brand d-md-none" href="#">
-      <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
-      Aperture
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="#offcanvasLabel">Aperture</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav flex-grow-1 justify-content-between">
-          <li class="nav-item"><a class="nav-link" href="#">
-          <li class="nav-item"><a class="nav-link" href="https://pepelangelo.com/" target="_blank">Art</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://pepelangelo.com/products/cart" target="_blank">Buy Now</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://lelang.go.id/" target="_blank">Auction</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">
-        </ul>
-      </div>
-    </div>
   </div>
 </nav>
 
@@ -209,95 +210,106 @@
   <!--  -->
   <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" style="background-image: url(images/Tile_01_Big_A_Dark.svg);">
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="5000">
-        <a href="images/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" target="_blank">
-          <img src="images/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" class="img-carousel"></img>
-        </a>
-      </div>
-      <div class="carousel-item" data-bs-interval="5000">
-        <a href="images/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" target="_blank">
-          <img src="images/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" class="img-carousel"></img>
-        </a>
-      </div>
-      <div class="carousel-item" data-bs-interval="5000">
+      <div class="carousel-item active" data-bs-interval="3000">
         <a href="https://pepelangelo.com/products/Pepe-the-Frog-Starry-Night-Print-on-canvas-with-handpainted-touches-of-painting-p394367832" target="_blank">
-          <img src="images/pepe_starrynight_painting.png" class="img-carousel" width="976" height="612"></img>
+          <img src="images/pepe_starrynight_painting.png" class="img-carousel" width="50%" height="50%"></img>
+        </a>
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <a href="https://pepelangelo.com/products/Pepe-the-Frog-Starry-Night-Print-on-canvas-with-handpainted-touches-of-painting-p394367832" target="_blank">
+          <img src="images/pepe_starrynight_painting.png" class="img-carousel" width="50%" height="50%"  style="transform: scaleX(-1);"></img>
+        </a>
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <a href="https://pepelangelo.com/products/Pepe-the-Frog-Starry-Night-Print-on-canvas-with-handpainted-touches-of-painting-p394367832" target="_blank">
+          <img src="images/pepe_starrynight_painting.png" class="img-carousel" width="50%" height="50%" style="filter: blur(10px);"></img>
         </a>
         </div>
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
   </div>
   <!--  -->
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary" style="background-image: url(images/Brick_01_A.svg);">
-    <div class="col-md-6 p-lg-5 mx-auto my-5">
-      <h1 class="display-3 fw-bold">By legendary artist</h1>
-      <h3 class="fw-normal text-muted mb-3">around the world</h3>
+  <div class="position-relative overflow-hidden px-5 m-md-3 text-center bg-body-tertiary" style="background-image: url(images/Brick_01_A.svg);">
+    <div class="p-lg-5 mx-auto">
+      <h1 class="display-3 fw-bold">By legendary artist around the world</h1>
   </div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Mona Lisa Pepe</h2>
-        <p class="lead">Pepelangelo</p>
-      </div>
+  <div class="row row-cols-1 row-cols row-cols-md-3">
+    <div class="col">
       <a href="https://pepelangelo.com/products/Mona-Lisa-Pepe-Print-on-canvas-with-handpainted-touches-of-painting-p394350501" target="_blank">
-        <img src="images/pepe_lisa_painting.jpg" class="img-product"></img>
+        <img src="images/pepe_lisa_painting.jpg" class="img-product" width="100%" height="100%"></img>
       </a>
     </div>
-    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Screaming Pepe</h2>
-        <p class="lead">Pepelangelo</p>
-      </div>
+    <div class="col">
       <a href="https://pepelangelo.com/products/Screaming-Pepe-Print-on-canvas-with-handpainted-touches-of-painting-p394338457" target="_blank">
-        <img src="images/pepe_scream_painting.jpg" class="img-product"></img>
+        <img src="images/pepe_scream_painting.jpg" class="img-product" width="100%" height="100%"></img>
+      </a>
+    </div>
+    <div class="col">
+      <a href="https://pepelangelo.com/products/Pepe-With-a-Pearl-Earring-Print-on-canvas-with-handpainted-touches-of-painting-p394338197" target="_blank">
+        <img src="images/pepe_earring_painting.jpg" class="img-product" width="100%" height="100%"></img>
       </a>
     </div>
   </div>
 
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Pepe With a Pearl Earring</h2>
-        <p class="lead">Pepelangelo</p>
+  <form>
+    <style>
+      .form-floating{
+        margin-bottom: 5px;
+        font-size: large;
+      }
+    </style>
+    <div class="container my-5">
+      <img class="mb-4" src="images/Pepe_Business.png">
+      <h1 class="h3 mb-3 fw-normal">Please sign in for giveaway</h1>
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
       </div>
-      <a href="https://pepelangelo.com/products/Pepe-With-a-Pearl-Earring-Print-on-canvas-with-handpainted-touches-of-painting-p394338197" target="_blank">
-        <img src="images/pepe_earring_painting.jpg" class="img-product" width="75%" height="75%"></img>
-      </a>
-    </div>
-    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Bold and Brash</h2>
-        <p class="lead">Squidward</p>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Home Address</label>
       </div>
-      <a href="images/squidward.jpg" target="_blank">
-        <img src="images/squidward.jpg" class="img-product"></img>
-      </a>
+      <div class="form-floating">
+        <input type="number" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Phone number</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Credit card number</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Ur mum name</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Ur sis name</label>
+      </div>
+      <p>Insert your picture</p>
+      <input type="file" class="form-control form-control-sm" aria-label="Small file input example">
+      <p>
+        <del>Don`t worry your data will be safe ;)</del>
+      </p>
+      <button class="btn btn-primary w-10 py-2" type="submit">Sign in</button>
+
     </div>
-  </div>
+  </form>
 </main>
 <!--  -->
 <footer class="container py-5">
-  <div class="row">
-    <div class="col-6 col-md">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-      <small class="d-block mb-3 text-body-secondary">&copy; 2023-present</small>
-    </div>
-    <div class="col-6 col-md">
-      <h5>About</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="link-secondary text-decoration-none" href="#">Team</a></li>
-        <li><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
-        <li><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
-        <li><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
-      </ul>
-    </div>
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">I do not own any of this arts, this is just for my school web project.</p>
+    <p class="mb-1">You can check the artist in here <a href="https://pepelangelo.com/" class="alert-link">pepelangelo.com</a></p>
+
   </div>
 </footer>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
