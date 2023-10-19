@@ -96,14 +96,8 @@
         max-width: 100%;
         height: auto;
         display: block;
-        border-style: solid;
-        border-width: 2px;
-        border-radius: 10px;
-        border-color: grey;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
       }
 
       .img-product{
@@ -111,6 +105,7 @@
         border-radius: 10px;
         border-width: 30px;
         border-color: rgb(173, 114, 36);
+        margin-bottom: 50px;
       }
     </style>
     
@@ -133,6 +128,42 @@
         <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
       </symbol>
     </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
     
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="border-radius: 8px;aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
@@ -166,7 +197,7 @@
           <li class="nav-item">
           <li class="nav-item"><a class="nav-link" href="../product/index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="../product/store.html">Store</a></li>
-          <li class="nav-item"><a class="nav-link" href="../product/error.html">Auction</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://lelang.go.id/">Auction</a></li>
           <li class="nav-item">
         </ul>
       </div>
@@ -176,73 +207,14 @@
 
 <main>
   <!--  -->
-  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" style="background-image: url(images/Tile_01_Big_A_Dark.svg);">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="3000">
-        <a href="https://pepelangelo.com/products/Pepe-the-Frog-Starry-Night-Print-on-canvas-with-handpainted-touches-of-painting-p394367832" target="_blank">
-          <img src="images/pepe_starrynight_painting.png" class="img-carousel" width="50%" height="50%"></img>
-        </a>
+    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="album py-5 bg-body-tertiary">
+        <h2 class="display-5">404</h2>
+        <p class="lead">Page not found  </p>
+        <img src="images/very_sad_pepe.gif" width="25%" height="25%"></img>
       </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <a href="https://pepelangelo.com/products/Pepe-the-Frog-Starry-Night-Print-on-canvas-with-handpainted-touches-of-painting-p394367832" target="_blank">
-          <img src="images/pepe_starrynight_painting.png" class="img-carousel" width="50%" height="50%"  style="transform: scaleX(-1);"></img>
-        </a>
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <a href="https://pepelangelo.com/products/Pepe-the-Frog-Starry-Night-Print-on-canvas-with-handpainted-touches-of-painting-p394367832" target="_blank">
-          <img src="images/pepe_starrynight_painting.png" class="img-carousel" width="50%" height="50%" style="filter: blur(10px);"></img>
-        </a>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </button>
     </div>
   </div>
-  <!--  -->
-  <div class="position-relative overflow-hidden px-5 m-md-3 text-center bg-body-tertiary" style="background-image: url(images/Brick_01_A.svg);">
-    <div class="p-lg-5 mx-auto">
-      <h1 class="display-3 fw-bold">By legendary artist around the world</h1>
-  </div>
-  <div class="row row-cols-1 row-cols row-cols-md-3">
-    <div class="col">
-      <a href="https://pepelangelo.com/products/Mona-Lisa-Pepe-Print-on-canvas-with-handpainted-touches-of-painting-p394350501" target="_blank">
-        <img src="images/pepe_lisa_painting.jpg" class="img-product" width="100%" height="100%"></img>
-      </a>
-    </div>
-    <div class="col">
-      <a href="https://pepelangelo.com/products/Screaming-Pepe-Print-on-canvas-with-handpainted-touches-of-painting-p394338457" target="_blank">
-        <img src="images/pepe_scream_painting.jpg" class="img-product" width="100%" height="100%"></img>
-      </a>
-    </div>
-    <div class="col">
-      <a href="https://pepelangelo.com/products/Pepe-With-a-Pearl-Earring-Print-on-canvas-with-handpainted-touches-of-painting-p394338197" target="_blank">
-        <img src="images/pepe_earring_painting.jpg" class="img-product" width="100%" height="100%"></img>
-      </a>
-    </div>
-  </div>
-
-  <form>
-    <style>
-      .form-floating{
-        margin-bottom: 5px;
-        font-size: large;
-      }
-    </style>
-    <div class="container my-5">
-      <img class="mb-4" src="images/Pepe_Business.png">
-      <h1 class="h3 mb-3 fw-normal">Sign up to our newsletter for the latest update</h1>
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <button class="btn btn-primary w-10 py-2 mt-2" type="submit">Sign up</button>
-
-    </div>
-  </form>
 </main>
 <!--  -->
 <footer class="container py-5">
@@ -252,10 +224,21 @@
     </p>
     <p class="mb-1">I do not own any of this arts, this is just for my school web project.</p>
     <p class="mb-1">You can check the artist in here <a href="https://pepelangelo.com/" class="alert-link">pepelangelo.com</a></p>
-    <p class="mb-1">Website by Marvin Adinata using Bootstrap</p>
+    <button class="btn btn-primary w-100 py-2" onclick="">Sign in</button>
+    
+    <?php
+    define("GREETING", "Welcome to W3Schools.com!");
+
+    function rng() {
+        echo rand(0, 10);
+    }
+    
+    ?> 
+
   </div>
 </footer>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/dist/js/bootstrap.bundle.min.js">
 
+</script>
     </body>
 </html>
