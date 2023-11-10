@@ -1,32 +1,19 @@
 import cv2 as cv
 import matplotlib.pyplot as plt
-import sys
+import numpy as np
 
-img = cv.imread("Starry_Night.jpg")
+img_list = [
+    "bersihkan_noise.png",
+    "hitung_koin.png"
+]
+plt.figure(figsize=(16, 9))
 
-b,g,r = cv.split(img)
-
-fig,ax = plt.subplots(2,2)
-
-ax[0,0].imshow(r,cmap='gray')
-ax[0,0].set_title("Red Channel");
-ax[0,1].imshow(g,cmap='gray')
-ax[0,1].set_title("Green Channel");
-ax[1,0].imshow(b,cmap='gray')
-ax[1,0].set_title("Blue Channel");
-
-# Merge the individual channels into a BGR image
-imgMerged = cv.merge((b,g,r))
-# Show the merged output
-ax[1,1].imshow(imgMerged[:,:,::-1])
-ax[1,1].set_title("Merged Output");
-print(ax)
-
+kernel = np.ones((9,9), np.uint8)
+img_ori = cv.imread(img_list[0])
+img_ori = cv.cvtColor(img_ori, cv.COLOR_BGR2RGB)
+plt.title("Original")
+plt.imshow(img_ori)
+plt.figure(figsize=(16, 9))
+img_eroded = cv.erode(img_ori, kernel, iterations=1)
 
 plt.show()
-
-# cv.imshow("Display window", img)
-# k = cv.waitKey(0)
-
-# if k == ord("s"):
-#     cv.imwrite("starry_night.png", img)
