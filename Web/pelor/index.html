@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="../assets/js/color-modes.js"></script>
+  <head><script src="assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -95,11 +95,14 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+      
     </style>
 
     
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
+    <link href="cover.css" rel="stylesheet">
+
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -155,13 +158,13 @@
 
     <nav class="navbar navbar-expand-md bg-dark border-bottom" data-bs-theme="dark">
       <div class="container">
-        <a class="navbar-brand d-md-none" href="../product/index.html">
+        <a class="navbar-brand d-md-none" href="index.html" style="text-decoration: underline;">
           Home
         </a>
-        <a class="navbar-brand d-md-none" href="../product/index.html">
-          <img src="images/pepe_fancy.png" height="40px"></img>
+        <a class="navbar-brand d-md-none" href="index.html">
+          <img src="images/logo/pelor_logo.png" height="40px"></img>
         </a>
-        <a class="navbar-brand d-md-none" href="../product/coming_soon.html">
+        <a class="navbar-brand d-md-none" href="coming_soon.html">
           Blog
         </a>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
@@ -172,12 +175,12 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav flex-grow-1 justify-content-between">
               <li class="navbar-brand"></li>
-              <li class="nav-item"><a class="nav-link" style="font-size:x-large;" href="../product/index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" style="font-size:x-large;text-decoration: underline;" href="index.html">Home</a></li>
               <li class="nav-item">
                 <a class="navbar-brand" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                  <img src="images/pepe_fancy.png" height="40px" style="transform: scaleX(-1);"></img>
+                  <img src="images/logo/pelor_logo.png" height="60px"></img>
                 </a>
-              <li class="nav-item"><a class="nav-link" style="font-size:x-large;" href="../product/coming_soon.html">Blog</a></li>
+              <li class="nav-item"><a class="nav-link" style="font-size:x-large;" href="coming_soon.html">Blog</a></li>
               </li>
               <li class="navbar-brand"></li>
             </ul>
@@ -196,32 +199,29 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <img src="images/product/pelor_product.jpg" alt="" style="width: 100%;">
         <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+          <div class="carousel-caption text-start text-light-emphasis">
+            <h1>Pentol Telur</h1>
+            <p>Solusi cepat dan lezat untuk kehausan dan kelaparan. Sajikan kelezatan tepi jalan di rumah Anda!</p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <img src="images/product/pelor_product.jpg" alt="" style="width: 100%;">
         <div class="container">
-          <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          <div class="carousel-caption text-light-emphasis">
+            <h1>Pentol Telur</h1>
+            <p>Solusi cepat dan lezat untuk kehausan dan kelaparan. Sajikan kelezatan tepi jalan di rumah Anda!</p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <img src="images/product/pelor_product.jpg" alt="" style="width: 100%;">
         <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          <div class="carousel-caption text-end text-light-emphasis">
+            <h1>Pentol Telur</h1>
+            <p>Solusi cepat dan lezat untuk kehausan dan kelaparan. Sajikan kelezatan tepi jalan di rumah Anda!</p>
           </div>
         </div>
       </div>
@@ -245,23 +245,23 @@
 
     <!-- Three columns of text below the carousel -->
     <div class="d-flex justify-content-center mb-4">
-      <h1 class="fw-normal">Testimony</h1>
+      <h1 class="fw-normal fw-bold">Testimony</h1>
     </div>
     <div class="row">
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
         <h2 class="fw-normal mt-3">Marvin</h2>
-        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+        <p>"Tekstur lembut telur di dalamnya seolah-olah menciptakan harmoni yang sempurna dengan kelembutan rasa. Saya merasa seperti sedang merayakan pesta di mulut saya sendiri. Dan jangan lupakan bumbu kacang yang menjadi pelengkap sempurna."</p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
         <h2 class="fw-normal mt-3">Marvin</h2>
-        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+        <p>"Tekstur lembut telur di dalamnya seolah-olah menciptakan harmoni yang sempurna dengan kelembutan rasa. Saya merasa seperti sedang merayakan pesta di mulut saya sendiri. Dan jangan lupakan bumbu kacang yang menjadi pelengkap sempurna."</p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
         <h2 class="fw-normal mt-3">Marvin</h2>
-        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p>"Tekstur lembut telur di dalamnya seolah-olah menciptakan harmoni yang sempurna dengan kelembutan rasa. Saya merasa seperti sedang merayakan pesta di mulut saya sendiri. Dan jangan lupakan bumbu kacang yang menjadi pelengkap sempurna."</p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
@@ -272,12 +272,12 @@
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
       <div class="d-flex justify-content-center mb-4">
-        <h1 class="fw-normal">Menu</h1>
+        <h1 class="fw-normal fw-bold">Menu</h1>
       </div>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3 d-flex justify-content-center">
         <div class="col-lg-4">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="images/product/pelor_product.jpg" alt="">
             <div class="card-body">
               <p class="card-text text-center">Pelor Small + Bumbu Kacang</p>
               <div class="d-flex justify-content-center align-items-center">
@@ -292,7 +292,10 @@
         </div>
         <div class="col-lg-4">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <img src="images/product/pelor_product.jpg" alt="">
+            <div class="card-img-overlay">
+              <h5 class="card-title text-md-end fw-bolder text-warning">BEST VALUE</h5>
+            </div>
             <div class="card-body">
               <p class="card-text text-center">Pelor Large + Bumbu Kacang</p>
               <div class="d-flex justify-content-center align-items-center">
@@ -314,13 +317,13 @@
     
     <!-- Three columns of text below the carousel -->
     <div class="d-flex justify-content-center">
-      <h1 class="fw-normal mb-4">Contact Us</h1>
+      <h1 class="fw-normal mb-4 fw-bold">Contact Us</h1>
     </div>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3 d-flex justify-content-center">
       <div class="col-lg-4">
         <h3>WhatsApp</h3>
-        <a href="https://wa.me/62895429800999?text=Hallo%20saya%20ingin%20beli%20pelor." target="_blank">
-          <img class="rounded-3 mb-2" src="images/logo/Digital_Glyph_Green.svg" width="100" height="100">
+        <a href="https://wa.me/62895429800999?text=Hallo%20saya%20ingin%20membeli%20pelor." target="_blank">
+          <img class="rounded-3 mb-2 btn-hover" src="images/logo/Digital_Glyph_Green.svg" width="100" height="100">
         </a>
         <h6>0895429800999</h6>
       </div><!-- /.col-lg-4 -->
@@ -333,11 +336,16 @@
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
-
-
   </div><!-- /.container -->
 
-
+  <div class="container-fluid px-4 py-5 bg-body-tertiary" style="margin: 0;">
+    <div class="row justify-content-center align-items-center g-5 py-5">
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3 text-center fw-bold">We are coming to Mall Olympic Garden Malang on December 2023</h1>
+        <p class="lead text-center">Mall Olympic Garden merupakan mall terbesar yang berada di pusat Kota Malang. Mall ini didirikan pada pertengahan tahun 2008. Mall 4 lantai ini terletak di Jalan Kawi, Kota Malang. Mall Olympic Garden merupakan family mall yang berkonsep untuk menyediakan seluruh kebutuhan keluarga dalam satu tempat.</p>
+      </div>
+    </div>
+  </div>
   <!-- FOOTER -->
     
   <footer class="d-flex flex-wrap justify-content-between align-items-center bg-secondary-subtle">
@@ -351,15 +359,18 @@
           <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Marvin Adinata - 312110009</a></li>
           <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Marvin Adinata - 312110009</a></li>
         </ul>
-        <ul class="nav justify-content-center pb-3 mb-3">
+        <ul class="nav justify-content-center">
           <p class="text-center text-body-secondary jus">&copy; 2023 Pelor</p>
+        </ul>
+        <ul class="nav justify-content-center">
+          <p class="text-center text-body-secondary jus">KWU x TIF 2023</p>
         </ul>
       </footer>
     </div>
   </footer>
 
 </main>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
     </body>
 </html>
