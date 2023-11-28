@@ -1,4 +1,6 @@
 <?php
+  include_once 'session-page.inc.php';
+
   include_once 'db-connect.inc.php';
 ?>
 <!DOCTYPE html>
@@ -34,11 +36,9 @@
 
 <div class="w3-container">
   <h2>Tabel Users</h2>
-  <form method="GET">
+  <form action="/action_page.php">
     <input type="text" placeholder="Search.." name="search">
-      <a href="">
-        <button type='submit'>Submit</button>
-      </a>
+    <button type="submit">Submit</button>
   </form>
 
   <table class="w3-table-all w3-centered">
@@ -52,36 +52,23 @@
       </tr>
     </thead>
     <?php
-      $sql = "SELECT `userid`, `passcode`, `avatar` FROM `users` WHERE 1";
-      $search_result = mysqli_query($conn, $sql);
-      $search_result_row = mysqli_num_rows($search_result);
-      $item_per_page = 2;
-      $search_value = $_GET['search'];
 
+      $sql = "SELECT `userid`, `passcode`, `avatar` FROM `users` WHERE 1";
+      $result = mysqli_query($conn, $sql);
+      $result_row = mysqli_num_rows($result);
+      $i = 0;
+
+      $item_per_page = 3;
+      $total_page = ceil($result_row / $item_per_page);
       $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
       $offset = ($current_page - 1) * $item_per_page;
 
-      if (isset($_GET['search'])) {
-        if (!empty($_GET['search'])) {
-          // $search_value = $_GET['search'];
-          $sql = "SELECT * FROM `users` where userid like '%$search_value%' LIMIT $offset, $item_per_page";
-          $search_result = mysqli_query($conn, $sql);
-          $sql = "SELECT * FROM `users` where userid like '%$search_value%'";
-          $search_result_total = mysqli_query($conn, $sql);
-          $search_result_row = mysqli_num_rows($search_result_total);
-        }else{
-          echo "Empty ";
-          $sql = "SELECT `userid`, `passcode`, `avatar` FROM `users` WHERE 1 LIMIT $offset, $item_per_page";
-          $search_result = mysqli_query($conn, $sql);
-        }
-      }
-      $total_page = ceil($search_result_row / $item_per_page);
-      echo "Search for : $search_value <br>";
-      echo "Showing : $total_page pages <br>";
-      echo "With total : $search_result_row result<br>";
-      $i = 0;
-      if ($search_result_row > 0) {
-        while ($row = mysqli_fetch_assoc($search_result)) {
+      $sql = "SELECT `userid`, `passcode`, `avatar` FROM `users` LIMIT $offset, $item_per_page";
+      $result = mysqli_query($conn, $sql);
+      $result_row = mysqli_num_rows($result);
+
+      if ($result_row > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
           $i++;
           echo "<tr>" .
                 "<td>" . $i . " " .  "</td>" .
@@ -97,11 +84,12 @@
         }
         echo "<div class='w3-center'>";
         echo "<div class='w3-bar w3-border w3-round'>";
-        echo "<a href='users-list.php?search=$search_value&page=1' class='w3-bar-item w3-button'>&laquo First</a>";
+        echo "<a href='users-list.php?page=1' class='w3-bar-item w3-button'>&laquo;</a>";
         for ($i=1; $i < $total_page + 1; $i++) { 
-          echo "<a href='users-list.php?search=$search_value&page=$i' class='w3-bar-item w3-button'>$i</a>";
+          
+          echo "<a href='users-list.php?page=$i' class='w3-bar-item w3-button'>$i</a>";
         }
-        echo "<a href='users-list.php?search=$search_value&page=$total_page' class='w3-bar-item w3-button'>Last &raquo</a>";
+        echo "<a href='users-list.php?page=$total_page' class='w3-bar-item w3-button'>&raquo;</a>";
         echo "</div>";
         echo "</div>";
       }

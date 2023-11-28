@@ -1,5 +1,7 @@
 <?php
   include_once 'db-connect.inc.php';
+  include_once 'session-page.inc.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
