@@ -20,14 +20,19 @@
           <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" required
               name="userid">
           <label><b>Password</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Password" required
+          <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Password" required
               name="passcode">
           <label><b>RePassword</b></label>
-          <input class="w3-input w3-border" type="text" placeholder="Enter Password" required
+          <input class="w3-input w3-border" type="password" placeholder="Enter Password" required
               name="repasscode">
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Register</button>
+          <button class="w3-button w3-green w3-section w3-padding" type="submit">Register</button>
         </div>
       </form>
+      <div class="w3-container">
+        <a href="users-list.php">
+          <button class="w3-button w3-yellow w3-section w3-padding">Enter</button>
+        </a>
+      </div>
 
     </div>
   </div>

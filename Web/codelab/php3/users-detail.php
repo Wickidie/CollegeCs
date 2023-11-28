@@ -1,7 +1,7 @@
 <?php
   include_once 'db-connect.inc.php';
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+
+<body>
+  <div>
+    <a href="users-list.php">
+      <button class="w3-button w3-green w3-section w3-padding">User List</button>
+    </a>
+  </div>
+</body>
 
 <?php
   $userid = $_GET['userid'];
@@ -31,3 +39,4 @@
 
   mysqli_close($conn);
 ?>
+

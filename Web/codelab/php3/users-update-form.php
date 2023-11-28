@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +17,12 @@
       <form class="w3-container" action="users-update.php" method="post">
 
         <div class="">
-          <h3 class="">UPDATE</h3>
+          <?php
+            $userid = $_GET['userid'];
+            echo "<h3>UPDATE $userid</h3>";
+          ?>
         </div>
         <div class="w3-section">
-          <label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" required
-              name="userid">
           <label><b>Password</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Password" required
               name="passcode">
@@ -34,10 +32,15 @@
         <?php
           $userid = $_GET['userid'];
           echo "<button class='w3-button w3-block w3-green w3-section w3-padding' type='submit'
-                name='old_userid' value='$userid' >Update</button>";
+                name='userid' value='$userid' >Update</button>";
         ?>
         </div>
       </form>
+      <div>
+        <a href="users-list.php">
+          <button class="w3-button w3-green w3-section w3-padding">User List</button>
+        </a>
+      </div>
 
     </div>
   </div>

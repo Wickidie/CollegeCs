@@ -1,5 +1,6 @@
 <?php
-  include_once 'db-connect.inc.php';
+  setcookie("user", "lockey", time() + 3600, "/");
+  echo "Cookie user has been set.";    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,17 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-
-<?php
-  $userid = $_GET['userid'];
-  $sql = "DELETE FROM users WHERE userid='$userid'";
-
-  if (mysqli_query($conn, $sql)) {
-    echo "Record deleted successfully";
-    header('Location: users-list.php');
-  } else {
-    echo "Error deleting record: " . mysqli_error($conn);
-  }
-  
-  mysqli_close($conn);
-?>
+<body>
+  <p>klik <a href="cookie-get.php">di sini</a> untuk pergi ke halaman kedua.</p>
+</body>
+</html>

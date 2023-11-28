@@ -1,5 +1,10 @@
 <?php
-  include_once 'db-connect.inc.php';
+  session_start();
+
+  $userid = isset($_SESSION['userid']) ? $_SESSION['userid'] : "Tidak ada informasi pengguna";
+    echo "User ID: $userid";
+
+    echo "<p><a href='session-delete.php'>Hapus Sesi</a></p>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,16 +20,4 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
-<?php
-  $userid = $_GET['userid'];
-  $sql = "DELETE FROM users WHERE userid='$userid'";
-
-  if (mysqli_query($conn, $sql)) {
-    echo "Record deleted successfully";
-    header('Location: users-list.php');
-  } else {
-    echo "Error deleting record: " . mysqli_error($conn);
-  }
-  
-  mysqli_close($conn);
-?>
+</html>
