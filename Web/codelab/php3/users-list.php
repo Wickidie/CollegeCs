@@ -52,18 +52,17 @@
       </tr>
     </thead>
     <?php
+      $item_per_page = 2;
+      $search_value = $_GET['search'];
       $sql = "SELECT `userid`, `passcode`, `avatar` FROM `users` WHERE 1";
       $search_result = mysqli_query($conn, $sql);
       $search_result_row = mysqli_num_rows($search_result);
-      $item_per_page = 2;
-      $search_value = $_GET['search'];
 
       $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
       $offset = ($current_page - 1) * $item_per_page;
 
       if (isset($_GET['search'])) {
         if (!empty($_GET['search'])) {
-          // $search_value = $_GET['search'];
           $sql = "SELECT * FROM `users` where userid like '%$search_value%' LIMIT $offset, $item_per_page";
           $search_result = mysqli_query($conn, $sql);
           $sql = "SELECT * FROM `users` where userid like '%$search_value%'";
