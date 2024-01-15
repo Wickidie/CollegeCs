@@ -151,66 +151,55 @@
     </div>
 
     
-<header data-bs-theme="dark">
-  <div class="collapse text-bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4>About</h4>
-          <p class="text-body-secondary">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4>Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
-        </div>
+<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand d-md-none" href="#">
+      <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
+      Store
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="#offcanvasLabel">Store</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav flex-grow-1 justify-content-between">
+          <li class="navbar-brand">
+            <a class="navbar-brand" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+              <img src="images/pepe_fancy.png" height="40px"></img>
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link" style="font-size:x-large;" href="../product/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" style="font-size:x-large;" href="../product/store.html">Store</a></li>
+          <li class="nav-item"><a class="nav-link" style="font-size:x-large;" href="../product/blog.html">Blog</a></li>
+          <li class="nav-item">
+            <a class="navbar-brand" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+              <img src="images/pepe_fancy.png" height="40px" style="transform: scaleX(-1);"></img>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-  <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
-    <div class="container">
-      <a class="navbar-brand d-md-none" href="#">
-        <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
-        Aperture
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="#offcanvasLabel">Aperture</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav flex-grow-1 justify-content-between">
-            <li class="nav-item">
-            <li class="nav-item">
-            <li class="nav-item"><a class="nav-link" href="../product/index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="../product/store.html">Store</a></li>
-            <li class="nav-item"><a class="nav-link" href="../product/error.html">Auction</a></li>
-            <li class="nav-item">
-            <li class="nav-item">
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
+</nav>
 
 <main>
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">All purchase include free shipping*</h1>
-        <p class="lead text-body-secondary">*only in Asia</p>
-      </div>
-    </div>
-  </section>
 
+  <style>
+    .card-body{
+      font-size: x-large;
+    }
+    .text-body-secondary{
+      font-size: large;
+    }
+    .btn{
+      font-size: large;
+    }
+  </style>
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
 
@@ -221,12 +210,12 @@
               <img src="images/pepe_scream_painting.jpg" class="img-product" width="100%" height="100%"></img>
             </a>
             <div class="card-body">
-              <p class="card-text">Screaming Pepe</p>
+              <p class="card-text text-center fw-bold">Screaming Pepe</p>
               <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">808$</small>
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-success" onclick="location.href='checkout.html'">Buy Now</button>
                 </div>
-                <small class="text-body-secondary">808$</small>
               </div>
             </div>
           </div>
@@ -237,12 +226,12 @@
               <img src="images/pepe_lisa_painting.jpg" class="img-product" width="100%" height="100%"></img>
             </a>
             <div class="card-body">
-              <p class="card-text">Mona Lisa Pepe</p>
+              <p class="card-text text-center fw-bold">Mona Lisa Pepe</p>
               <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary"><small class="text-body-secondary"><del style="color: red; font-size: x-small;">999$</del></small> 1999$</small>
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-success" onclick="location.href='checkout.html'">Buy Now</button>
                 </div>
-                <small class="text-body-secondary"><small class="text-body-secondary"><del style="color: red;">999$</del></small> 1999$</small>
               </div>
             </div>
           </div>
@@ -253,12 +242,12 @@
               <img src="images/pepe_earring_painting.jpg" class="img-product" width="100%" height="100%"></img>
             </a>
             <div class="card-body">
-              <p class="card-text">Pepe With a Pearl Earring</p>
+              <p class="card-text text-center fw-bold">Pepe With a Pearl Earring</p>
               <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">350$</small>
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-success" onclick="location.href='checkout.html'">Buy Now</button>
                 </div>
-                <small class="text-body-secondary">350$</small>
               </div>
             </div>
           </div>
@@ -270,12 +259,12 @@
               <img src="images/pepe_arnold.jpg" class="img-product" width="100%" height="100%"></img>
             </a>
             <div class="card-body">
-              <p class="card-text">Pepe Arnold Schwarzenegger</p>
+              <p class="card-text text-center fw-bold">Pepe Arnold Schwarzenegger</p>
               <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">690$</small>
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-success" onclick="location.href='checkout.html'">Buy Now</button>
                 </div>
-                <small class="text-body-secondary">690$</small>
               </div>
             </div>
           </div>
@@ -286,12 +275,12 @@
               <img src="images/pepe_joker.jpg" class="img-product" width="100%" height="100%"></img>
             </a>
             <div class="card-body">
-              <p class="card-text">Pepe Joker Dancing on Stairs</p>
+              <p class="card-text text-center fw-bold">Pepe Joker Dancing on Stairs</p>
               <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">666$</small>
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-success" onclick="location.href='checkout.html'">Buy Now</button>
                 </div>
-                <small class="text-body-secondary">666$</small>
               </div>
             </div>
           </div>
@@ -302,20 +291,19 @@
               <img src="images/pepe_napoleon.jpg" class="img-product" width="100%" height="100%"></img>
             </a>
             <div class="card-body">
-              <p class="card-text">Pepeleon</p>
+              <p class="card-text text-center fw-bold">Pepeleon</p>
               <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">420$</small>
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-success" onclick="location.href='checkout.html'">Buy Now</button>
                 </div>
-                <small class="text-body-secondary">420$</small>
               </div>
             </div>
           </div>
-        </div>  
-      </div>
+        </div>
+      </div> 
     </div>
   </div>
-
 </main>
 
 <footer class="container py-5">
@@ -324,6 +312,18 @@
       <a href="#">Back to top</a>
     </p>
     <p class="mb-1">I do not own any of this arts, this is just for my school web project.</p>
+    <div>
+      <p class="float-end mb-1">
+        <a href="">
+          <img src="images/pepe_fancy.png" width="30px">
+        </a>
+        <a href="">
+          <img src="images/pepe_fancy.png" width="30px">
+        </a>
+        <a href="">
+          <img src="images/pepe_fancy.png" width="30px">
+        </a>
+    </div>
     <p class="mb-1">You can check the artist in here <a href="https://pepelangelo.com/" class="alert-link">pepelangelo.com</a></p>
     <p class="mb-1">Website by Marvin Adinata using Bootstrap</p>
   </div>

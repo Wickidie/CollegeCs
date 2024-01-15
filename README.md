@@ -5,4 +5,5 @@ Using Mozilla doc
 Using GetShayna
 - [../Web/paintingofjoy/product/index.html](Web/paintingofjoy/product)
 Using Bootstrap
-
+- [../Web/pelor/product/index.html](Web/pelor/product)
+Using Bootstrap for E-Commerce

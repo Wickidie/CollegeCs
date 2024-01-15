@@ -147,27 +147,70 @@
   </symbol>
 </svg>
 
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+  <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+          id="bd-theme"
+          type="button"
+          aria-expanded="false"
+          data-bs-toggle="dropdown"
+          aria-label="Toggle theme (auto)">
+    <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+    <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+    <li>
+      <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+        <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+        Light
+        <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+        <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+        Dark
+        <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+        <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        Auto
+        <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+      </button>
+    </li>
+  </ul>
+</div>
+
 <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
   <div class="container">
     <a class="navbar-brand d-md-none" href="#">
       <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
-      Aperture
+      Home
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="#offcanvasLabel">Aperture</h5>
+        <h5 class="offcanvas-title" id="#offcanvasLabel">Home</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav flex-grow-1 justify-content-between">
+          <li class="navbar-brand">
+            <a class="navbar-brand" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+              <img src="images/pepe_fancy.png" height="40px"></img>
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link" style="font-size:x-large;" href="../product/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" style="font-size:x-large;" href="../product/store.html">Store</a></li>
+          <li class="nav-item"><a class="nav-link" style="font-size:x-large;" href="../product/blog.html">Blog</a></li>
           <li class="nav-item">
-          <li class="nav-item"><a class="nav-link" href="../product/index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="../product/store.html">Store</a></li>
-          <li class="nav-item"><a class="nav-link" href="../product/error.html">Auction</a></li>
-          <li class="nav-item">
+            <a class="navbar-brand" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+              <img src="images/pepe_fancy.png" height="40px" style="transform: scaleX(-1);"></img>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -205,53 +248,73 @@
   <!--  -->
   <div class="position-relative overflow-hidden px-5 m-md-3 text-center bg-body-tertiary" style="background-image: url(images/Brick_01_A.svg);">
     <div class="p-lg-5 mx-auto">
-      <h1 class="display-3 fw-bold">By legendary artist around the world</h1>
+      <h1 class="display-3 fw-bold">Rarest Pepes in your life.</h1>
+      <h1 class="display-3 fw-bold">Made with love, ship worldwide.</h1>
   </div>
   <div class="row row-cols-1 row-cols row-cols-md-3">
-    <div class="col">
+    <div class="col gy-3">
       <a href="https://pepelangelo.com/products/Mona-Lisa-Pepe-Print-on-canvas-with-handpainted-touches-of-painting-p394350501" target="_blank">
         <img src="images/pepe_lisa_painting.jpg" class="img-product" width="100%" height="100%"></img>
       </a>
     </div>
-    <div class="col">
+    <div class="col gy-3">
       <a href="https://pepelangelo.com/products/Screaming-Pepe-Print-on-canvas-with-handpainted-touches-of-painting-p394338457" target="_blank">
         <img src="images/pepe_scream_painting.jpg" class="img-product" width="100%" height="100%"></img>
       </a>
     </div>
-    <div class="col">
+    <div class="col gy-3">
       <a href="https://pepelangelo.com/products/Pepe-With-a-Pearl-Earring-Print-on-canvas-with-handpainted-touches-of-painting-p394338197" target="_blank">
         <img src="images/pepe_earring_painting.jpg" class="img-product" width="100%" height="100%"></img>
       </a>
     </div>
   </div>
 
-  <form>
-    <style>
-      .form-floating{
-        margin-bottom: 5px;
-        font-size: large;
-      }
-    </style>
-    <div class="container my-5">
-      <img class="mb-4" src="images/Pepe_Business.png">
-      <h1 class="h3 mb-3 fw-normal">Sign up to our newsletter for the latest update</h1>
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <button class="btn btn-primary w-10 py-2 mt-2" type="submit">Sign up</button>
+  <div class="d-flex justify-content-center">
 
-    </div>
-  </form>
+    <form class="row g-3">
+      <style>
+        .form-floating{
+          margin-bottom: 5px;
+          font-size: large;
+        }
+      </style>
+      <div class="container my-5">
+        <img class="mb-4" src="images/Pepe_Business.png">
+        <h1 class="h3 mb-3 fw-normal">Sign up to our newsletter for the latest update</h1>
+        <div class="form-floating" >
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <button class="btn btn-primary w-10 py-2 mt-2" type="submit">Sign up</button>
+      </div>
+    </form>
+    
+  </div>
+
+  
 </main>
 <!--  -->
 <footer class="container py-5">
   <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">I do not own any of this arts, this is just for my school web project.</p>
-    <p class="mb-1">You can check the artist in here <a href="https://pepelangelo.com/" class="alert-link">pepelangelo.com</a></p>
+    <div>
+      <p class="float-end mb-1">
+        <a href="">
+          <img src="images/pepe_fancy.png" width="30px">
+        </a>
+        <a href="">
+          <img src="images/pepe_fancy.png" width="30px">
+        </a>
+        <a href="">
+          <img src="images/pepe_fancy.png" width="30px">
+        </a>
+    </div>
+    <p class="mb-1" style="fon">Kelompok 11 E-Commerce</p>
+    <p class="mb-1">Marvin Adinata - 312110009</p>
+    <p class="mb-1">Marvin Adinata - 312110009</p>
+    <p class="mb-1">Marvin Adinata - 312110009</p>
+    <p class="mb-1">Marvin Adinata - 312110009</p>
+    <p class="mb-1">Marvin Adinata - 312110009</p>
+    <p class="mb-1">Marvin Adinata - 312110009</p>
     <p class="mb-1">Website by Marvin Adinata using Bootstrap</p>
   </div>
 </footer>
